@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de Zonas Tarifarias – Extremadura desde Badajoz</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #eee; }
+    #header {
+      padding: 14px 20px;
+      background: linear-gradient(135deg, #0f3460, #16213e);
+      display: flex; align-items: center; gap: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
+    #header h1 { font-size: 1.2rem; font-weight: 700; color: #e94560; }
+    #header p { font-size: 0.8rem; color: #aaa; }
+    #map { width: 100%; height: calc(100vh - 58px); }
+
+    /* ---- Leyenda ---- */
+    .legend {
+      background: rgba(15, 20, 40, 0.95);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      backdrop-filter: blur(6px);
+      min-width: 195px;
+    }
+    .legend h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #e94560;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 6px;
+    }
+    .legend-row {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 3px;
+    }
+    .legend-dot {
+      width: 13px; height: 13px; border-radius: 50%;
+      flex-shrink: 0; border: 1.5px solid rgba(255,255,255,0.3);
+    }
+    .legend-text { color: #ddd; }
+    .legend-price { color: #aaa; font-size: 0.72rem; margin-left: auto; padding-left: 6px; }
+
+    /* ---- Info panel ---- */
+    #info-panel {
+      position: fixed;
+      bottom: 20px; right: 20px;
+      background: rgba(15, 20, 40, 0.97);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px;
+      padding: 14px 18px;
+      font-size: 0.82rem;
+      min-width: 230px;
+      max-width: 270px;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    #info-panel .close-btn {
+      position: absolute; top: 8px; right: 10px;
+      cursor: pointer; color: #aaa; font-size: 1rem;
+    }
+    #info-panel h3 { color: #e94560; margin-bottom: 8px; font-size: 0.95rem; }
+    #info-panel table { width: 100%; border-collapse: collapse; }
+    #info-panel td { padding: 3px 0; color: #ccc; }
+    #info-panel td:first-child { color: #888; padding-right: 10px; font-size: 0.75rem; }
+    .zone-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+    .dia-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.78rem;
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+    /* Filtros de día */
+    #filtros {
+      position: fixed; top: 68px; right: 12px;
+      background: rgba(15,20,40,0.95);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.76rem;
+      z-index: 1000;
+      min-width: 175px;
+    }
+    #filtros h4 { color: #e94560; margin-bottom: 7px; font-size: 0.82rem; }
+    .filtro-btn {
+      display: block; width: 100%;
+      padding: 4px 8px; margin-bottom: 3px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.06);
+      color: #ccc; cursor: pointer; text-align: left;
+      font-size: 0.74rem;
+      transition: background 0.15s;
+    }
+    .filtro-btn:hover { background: rgba(255,255,255,0.15); }
+    .filtro-btn.active { background: rgba(233,69,96,0.4); border-color: #e94560; color: #fff; }
+
+    /* ---- Buscador CP ---- */
+    #buscador-cp {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    #buscador-cp label {
+      font-size: 0.78rem;
+      color: #aaa;
+      white-space: nowrap;
+    }
+    #cp-input {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 6px;
+      color: #fff;
+      padding: 7px 12px;
+      font-size: 0.95rem;
+      width: 115px;
+      outline: none;
+      letter-spacing: 2px;
+      font-weight: 600;
+      transition: border-color 0.2s;
+    }
+    #cp-input::placeholder { letter-spacing: 1px; font-weight: 400; color: #666; }
+    #cp-input:focus { border-color: #e94560; }
+    #btn-buscar {
+      background: #e94560;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      padding: 7px 16px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background 0.15s;
+    }
+    #btn-buscar:hover { background: #c73652; }
+    #cp-msg {
+      font-size: 0.78rem;
+      color: #aaa;
+      min-width: 60px;
+      white-space: nowrap;
+    }
+
+    /* Stats bar */
+    #stats {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(10,10,20,0.92);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; gap: 0; z-index: 999;
+      overflow-x: auto;
+    }
+    .stat-item {
+      flex: 1; min-width: 90px;
+      padding: 6px 10px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat-item .s-zone { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; }
+    .stat-item .s-count { font-size: 1rem; font-weight: 700; color: #fff; }
+    .stat-item .s-price { font-size: 0.62rem; color: #888; }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <div>
+    <h1>Mapa Tarifario · Extremadura</h1>
+    <p>Zonas de reparto desde Badajoz 06007 · Haz clic en un municipio o busca por CP</p>
+  </div>
+  <div id="buscador-cp">
+    <label>🔍 Buscar CP</label>
+    <input id="cp-input" type="text" placeholder="06001" maxlength="5"
+      onkeydown="if(event.key==='Enter') buscarCP()"
+      oninput="this.value=this.value.replace(/\D/g,'')" />
+    <button id="btn-buscar" onclick="buscarCP()">Buscar</button>
+    <span id="cp-msg"></span>
+  </div>
+</div>
+
+<div id="map"></div>
+
+<div id="info-panel">
+  <span class="close-btn" onclick="document.getElementById('info-panel').style.display='none'">✕</span>
+  <h3 id="ip-municipio">—</h3>
+  <table>
+    <tr><td>Provincia</td><td id="ip-provincia">—</td></tr>
+    <tr><td>Cód. Postal</td><td id="ip-cp">—</td></tr>
+    <tr><td>Distancia</td><td id="ip-dist">—</td></tr>
+    <tr><td>Zona</td><td><span id="ip-zona" class="zone-badge">—</span></td></tr>
+    <tr><td>Base</td><td id="ip-base">—</td></tr>
+    <tr><td>IVA (21%)</td><td id="ip-iva">—</td></tr>
+    <tr><td><strong>Total</strong></td><td id="ip-total" style="font-weight:700;color:#e94560">—</td></tr>
+    <tr><td>Reparto</td><td><span id="ip-dia" class="dia-badge">—</span></td></tr>
+  </table>
+</div>
+
+<div id="filtros">
+  <h4>📅 Filtrar por día</h4>
+  <button class="filtro-btn active" onclick="filtrarDia('TODOS')">Todos los CPs</button>
+  <button class="filtro-btn" onclick="filtrarDia('LUNES')">Lunes</button>
+  <button class="filtro-btn" onclick="filtrarDia('MARTES')">Martes</button>
+  <button class="filtro-btn" onclick="filtrarDia('MIERCOLES')">Miércoles</button>
+  <button class="filtro-btn" onclick="filtrarDia('JUEVES')">Jueves</button>
+  <button class="filtro-btn" onclick="filtrarDia('VIERNES')">Viernes</button>
+  <button class="filtro-btn" onclick="filtrarDia('SIN DATO')">Sin dato</button>
+</div>
+<div id="stats"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ============================================================
+// CONFIGURACIÓN DE ZONAS
+// ============================================================
+const ZONAS = {
+  A: { color: '#00e676', label: '0–25 km',     precio: '25 €',  total: '30,25 €' },
+  B: { color: '#40c4ff', label: '25–50 km',    precio: '28 €',  total: '33,88 €' },
+  C: { color: '#ffeb3b', label: '50–75 km',    precio: '31 €',  total: '37,51 €' },
+  D: { color: '#ff9800', label: '75–120 km',   precio: '34 €',  total: '41,14 €' },
+  E: { color: '#ff5722', label: '120–160 km',  precio: '37 €',  total: '44,77 €' },
+  F: { color: '#e91e63', label: '160–200 km',  precio: '40 €',  total: '48,40 €' },
+  G: { color: '#9c27b0', label: '200–250 km',  precio: '43 €',  total: '52,03 €' },
+  H: { color: '#607d8b', label: '250–300 km',  precio: '45 €',  total: '54,45 €' }
+};
+
+// ============================================================
+// DATOS: municipios con coordenadas reales + dia de reparto
+// ============================================================
+const cpDias = {
+  '10748':'SIN DATO',
+  '10857':'SIN DATO',
+  '10650':'SIN DATO',
+  '10671':'SIN DATO',
+  '10410':'SIN DATO',
+  '10729':'SIN DATO',
+  '10865':'SIN DATO',
+  '10591':'SIN DATO',
+  '10670':'SIN DATO',
+  '10628':'SIN DATO',
+  '10818':'SIN DATO',
+  '10616':'SIN DATO',
+  '10309':'SIN DATO',
+  '10340':'SIN DATO',
+  '10870':'SIN DATO',
+  '10663':'SIN DATO',
+  '10895':'SIN DATO',
+  '10866':'SIN DATO',
+  '10328':'SIN DATO',
+  '10412':'SIN DATO',
+  '10749':'SIN DATO',
+  '10333':'SIN DATO',
+  '10815':'SIN DATO',
+  '10459':'SIN DATO',
+  '10829':'SIN DATO',
+  '10515':'SIN DATO',
+  '10759':'SIN DATO',
+  '10649':'SIN DATO',
+  '10624':'SIN DATO',
+  '10529':'SIN DATO',
+  '10662':'SIN DATO',
+  '10340':'SIN DATO',
+  '10374':'SIN DATO',
+  '10626':'SIN DATO',
+  '10667':'SIN DATO',
+  '10660':'SIN DATO',
+  '10411':'SIN DATO',
+  '10334':'SIN DATO',
+  '10335':'SIN DATO',
+  '10638':'SIN DATO',
+  '10615':'SIN DATO',
+  '10813':'SIN DATO',
+  '10493':'SIN DATO',
+  '10272':'SIN DATO',
+  '10661':'SIN DATO',
+  '10739':'SIN DATO',
+  '10528':'SIN DATO',
+  '10864':'SIN DATO',
+  '10869':'SIN DATO',
+  '10413':'SIN DATO',
+  '10332':'SIN DATO',
+  '10890':'SIN DATO',
+  '10814':'SIN DATO',
+  '10893':'SIN DATO',
+  '10330':'SIN DATO',
+  '10858':'SIN DATO',
+  '10176':'SIN DATO',
+  '06329':'SIN DATO',
+  '06439':'SIN DATO',
+  '06711':'SIN DATO',
+  '06320':'SIN DATO',
+  '06713':'SIN DATO',
+
+  '06001':'LUNES A VIERNES',
+  '06002':'LUNES A VIERNES',
+  '06003':'LUNES A VIERNES',
+  '06004':'LUNES A VIERNES',
+  '06005':'LUNES A VIERNES',
+  '06006':'LUNES A VIERNES',
+  '06007':'LUNES A VIERNES',
+  '06008':'LUNES A VIERNES',
+  '06009':'LUNES A VIERNES',
+  '06010':'LUNES A VIERNES',
+  '06011':'LUNES A VIERNES',
+  '06100':'LUNES, MIERCOLES, VIERNES',
+  '06105':'MIERCOLES',
+  '06107':'LUNES, MIERCOLES, VIERNES',
+  '06108':'LUNES, MIERCOLES, VIERNES',
+  '06109':'LUNES, MIERCOLES, VIERNES',
+  '06110':'MIERCOLES',
+  '06111':'MIERCOLES Y VIERNES',
+  '06112':'MIERCOLES Y VIERNES',
+  '06113':'MIERCOLES Y VIERNES',
+  '06114':'MIERCOLES Y VIERNES',
+  '06115':'MIERCOLES Y VIERNES',
+  '06117':'MIERCOLES Y VIERNES',
+  '06118':'MIERCOLES Y VIERNES',
+  '06119':'MIERCOLES Y VIERNES',
+  '06120':'MIERCOLES',
+  '06129':'MIERCOLES',
+  '06130':'LUNES, MIERCOLES, VIERNES',
+  '06131':'MIERCOLES',
+  '06132':'MIERCOLES',
+  '06133':'MIERCOLES',
+  '06134':'MIERCOLES',
+  '06139':'LUNES Y VIERNES',
+  '06140':'LUNES, MARTES Y JUEVES',
+  '06144':'MARTES Y JUEVES',
+  '06150':'MIERCOLES',
+  '06160':'MIERCOLES',
+  '06170':'MARTES Y JUEVES',
+  '06171':'MIERCOLES',
+  '06172':'MIERCOLES',
+  '06173':'MIERCOLES',
+  '06174':'MIERCOLES',
+  '06175':'MIERCOLES',
+  '06176':'MIERCOLES',
+  '06177':'MIERCOLES',
+  '06178':'MIERCOLES',
+  '06179':'MARTES Y JUEVES',
+  '06180':'LUNES, MARTES Y JUEVES',
+  '06181':'LUNES, MARTES Y JUEVES',
+  '06183':'LUNES, MARTES Y JUEVES',
+  '06184':'MARTES Y JUEVES',
+  '06185':'MARTES Y JUEVES',
+  '06186':'MARTES Y JUEVES',
+  '06190':'LUNES, VIERNES',
+  '06191':'LUNES, VIERNES',
+  '06192':'LUNES',
+  '06193':'LUNES, JUEVES Y VIERNES',
+  '06194':'LUNES, JUEVES Y VIERNES',
+  '06195':'LUNES, MARTES Y JUEVES',
+  '06196':'MARTES',
+  '06197':'MIERCOLES',
+  '06200':'MARTES',
+  '06201':'MARTES Y JUEVES',
+  '06202':'MARTES Y JUEVES',
+  '06207':'MARTES',
+  '06208':'MARTES',
+  '06209':'MARTES',
+  '06210':'MARTES',
+  '06217':'MARTES Y JUEVES',
+  '06220':'MARTES',
+  '06221':'MARTES Y JUEVES',
+  '06225':'MARTES',
+  '06226':'MARTES',
+  '06227':'MIERCOLES',
+  '06228':'MARTES',
+  '06229':'MARTES',
+  '06230':'MIERCOLES',
+  '06231':'MARTES Y JUEVES',
+  '06232':'MARTES Y JUEVES',
+  '06233':'MARTES Y JUEVES',
+  '06240':'MIERCOLES',
+  '06245':'MIERCOLES Y VIERNES',
+  '06246':'MIERCOLES Y VIERNES',
+  '06247':'MIERCOLES Y VIERNES',
+  '06249':'MIERCOLES',
+  '06250':'MIERCOLES',
+  '06260':'MIERCOLES',
+  '06270':'MIERCOLES',
+  '06280':'MIERCOLES',
+  '06290':'MIERCOLES',
+  '06291':'MIERCOLES',
+  '06292':'MIERCOLES',
+  '06293':'MIERCOLES',
+  '06294':'MIERCOLES',
+  '06295':'MIERCOLES Y VIERNES',
+  '06300':'MIERCOLES',
+  '06301':'MARTES Y JUEVES',
+  '06310':'MIERCOLES',
+  '06311':'MARTES Y JUEVES',
+  '06312':'MARTES Y JUEVES',
+  '06330':'MIERCOLES',
+  '06340':'MIERCOLES',
+  '06350':'MIERCOLES',
+  '06360':'MARTES',
+  '06370':'MIERCOLES',
+  '06378':'MIERCOLES',
+  '06380':'MIERCOLES',
+  '06381':'MIERCOLES Y VIERNES',
+  '06390':'MIERCOLES',
+  '06391':'MIERCOLES',
+  '06393':'MIERCOLES',
+  '06394':'MIERCOLES',
+  '06400':'JUEVES',
+  '06401':'MARTES Y JUEVES',
+  '06411':'JUEVES',
+  '06412':'JUEVES',
+  '06413':'JUEVES',
+  '06420':'JUEVES',
+  '06421':'JUEVES',
+  '06427':'JUEVES',
+  '06429':'JUEVES',
+  '06430':'JUEVES',
+  '06440':'JUEVES',
+  '06441':'JUEVES',
+  '06442':'MIERCOLES',
+  '06443':'MIERCOLES',
+  '06444':'MIERCOLES',
+  '06445':'MIERCOLES',
+  '06450':'JUEVES',
+  '06458':'JUEVES',
+  '06460':'JUEVES',
+  '06468':'JUEVES',
+  '06469':'JUEVES',
+  '06470':'MARTES',
+  '06471':'MARTES Y JUEVES',
+  '06473':'MARTES',
+  '06474':'MARTES',
+  '06475':'MARTES',
+  '06476':'MARTES',
+  '06477':'MARTES',
+  '06478':'MARTES',
+  '06479':'MARTES',
+  '06480':'MARTES Y JUEVES',
+  '06481':'MARTES Y JUEVES',
+  '06486':'MARTES',
+  '06487':'MARTES',
+  '06488':'MARTES',
+  '06490':'MARTES Y JUEVES',
+  '06498':'MARTES Y JUEVES',
+  '06500':'LUNES',
+  '06510':'LUNES',
+  '06518':'LUNES',
+  '06600':'JUEVES',
+  '06611':'JUEVES',
+  '06612':'JUEVES',
+  '06620':'JUEVES',
+  '06640':'JUEVES',
+  '06648':'JUEVES',
+  '06649':'JUEVES',
+  '06650':'JUEVES',
+  '06656':'JUEVES',
+  '06657':'JUEVES',
+  '06658':'JUEVES',
+  '06659':'JUEVES',
+  '06660':'JUEVES',
+  '06670':'JUEVES',
+  '06678':'JUEVES',
+  '06680':'JUEVES',
+  '06689':'JUEVES',
+  '06690':'JUEVES',
+  '06691':'JUEVES',
+  '06692':'JUEVES',
+  '06700':'JUEVES',
+  '06701':'MARTES Y JUEVES',
+  '06714':'JUEVES',
+  '06715':'JUEVES',
+  '06716':'JUEVES',
+  '06720':'JUEVES',
+  '06730':'JUEVES',
+  '06740':'JUEVES',
+  '06742':'MARTES Y JUEVES',
+  '06750':'JUEVES',
+  '06760':'JUEVES',
+  '06761':'JUEVES',
+  '06770':'JUEVES',
+  '06800':'MARTES Y JUEVES',
+  '06801':'MARTES Y JUEVES',
+  '06802':'MARTES Y JUEVES',
+  '06810':'MARTES',
+  '06820':'MARTES',
+  '06840':'MARTES',
+  '06850':'MARTES',
+  '06870':'MARTES',
+  '06880':'MARTES',
+  '06890':'MARTES',
+  '06891':'MARTES',
+  '06892':'MARTES',
+  '06893':'MARTES',
+  '06894':'MARTES',
+  '06900':'MIERCOLES',
+  '06906':'MIERCOLES',
+  '06907':'MIERCOLES',
+  '06908':'MIERCOLES',
+  '06909':'MIERCOLES',
+  '06910':'MIERCOLES',
+  '06911':'MIERCOLES',
+  '06912':'MIERCOLES',
+  '06919':'MIERCOLES',
+  '06920':'MIERCOLES',
+  '06927':'MIERCOLES',
+  '06928':'MIERCOLES',
+  '06930':'MIERCOLES',
+  '06939':'MIERCOLES',
+  '06940':'MIERCOLES',
+  '06950':'MIERCOLES',
+  '06960':'MIERCOLES',
+  '06970':'MIERCOLES',
+  '06980':'MIERCOLES',
+  '10001':'LUNES A VIERNES',
+  '10002':'LUNES A VIERNES',
+  '10003':'LUNES A VIERNES',
+  '10004':'LUNES A VIERNES',
+  '10005':'LUNES A VIERNES',
+  '10100':'JUEVES',
+  '10101':'MARTES Y JUEVES',
+  '10108':'MARTES Y JUEVES',
+  '10109':'JUEVES',
+  '10110':'JUEVES',
+  '10120':'JUEVES',
+  '10121':'MARTES Y JUEVES',
+  '10129':'JUEVES',
+  '10130':'JUEVES',
+  '10131':'MARTES',
+  '10132':'JUEVES',
+  '10133':'JUEVES',
+  '10134':'JUEVES',
+  '10135':'JUEVES',
+  '10136':'JUEVES',
+  '10137':'JUEVES',
+  '10138':'SIN DATO',
+  '10139':'SIN DATO',
+  '10140':'JUEVES',
+  '10160':'MARTES',
+  '10161':'MARTES',
+  '10162':'VIERNES',
+  '10163':'VIERNES',
+  '10164':'VIERNES',
+  '10170':'MARTES',
+  '10171':'MARTES Y VIERNES',
+  '10180':'MARTES',
+  '10181':'VIERNES',
+  '10182':'VIERNES',
+  '10183':'VIERNES',
+  '10184':'VIERNES',
+  '10185':'MARTES',
+  '10186':'MARTES',
+  '10187':'MARTES',
+  '10189':'MARTES',
+  '10190':'LUNES, VIERNES',
+  '10191':'LUNES',
+  '10192':'LUNES',
+  '10193':'LUNES',
+  '10194':'LUNES',
+  '10198':'LUNES',
+  '10200':'MARTES',
+  '10201':'MARTES Y JUEVES',
+  '10210':'JUEVES',
+  '10230':'MARTES',
+  '10240':'MARTES',
+  '10250':'MARTES',
+  '10251':'MARTES',
+  '10252':'MARTES',
+  '10260':'MARTES',
+  '10261':'MARTES',
+  '10262':'JUEVES',
+  '10263':'JUEVES',
+  '10269':'MARTES',
+  '10270':'MARTES',
+  '10271':'MARTES',
+  '10280':'MARTES',
+  '10300':'POSTVENTA 601',
+  '10301':'MIERCOLES Y VIERNES',
+  '10310':'POSTVENTA 601',
+  '10320':'MARTES',
+  '10329':'MARTES Y JUEVES',
+  '10331':'JUEVES',
+  '10350':'MARTES',
+  '10359':'MARTES',
+  '10360':'MIERCOLES Y VIERNES',
+  '10361':'MIERCOLES Y VIERNES',
+  '10362':'MARTES Y JUEVES',
+  '10370':'MARTES',
+  '10371':'MARTES',
+  '10380':'MARTES',
+  '10390':'MARTES',
+  '10392':'MARTES Y JUEVES',
+  '10393':'MARTES',
+  '10394':'MARTES Y JUEVES',
+  '10395':'MARTES Y VIERNES',
+  '10396':'MARTES Y JUEVES',
+  '10397':'MARTES Y JUEVES',
+  '10400':'MIERCOLES Y VIERNES',
+  '10420':'MIERCOLES Y VIERNES',
+  '10430':'MIERCOLES Y VIERNES',
+  '10440':'MIERCOLES Y VIERNES',
+  '10450':'MIERCOLES Y VIERNES',
+  '10460':'MIERCOLES Y VIERNES',
+  '10470':'MIERCOLES Y VIERNES',
+  '10480':'MIERCOLES Y VIERNES',
+  '10481':'MIERCOLES Y VIERNES',
+  '10482':'MIERCOLES Y VIERNES',
+  '10484':'MIERCOLES Y VIERNES',
+  '10490':'MIERCOLES Y VIERNES',
+  '10500':'LUNES Y VIERNES',
+  '10501':'LUNES Y VIERNES',
+  '10510':'LUNES',
+  '10511':'LUNES',
+  '10512':'LUNES',
+  '10513':'LUNES',
+  '10514':'LUNES',
+  '10520':'LUNES',
+  '10530':'LUNES',
+  '10540':'LUNES',
+  '10550':'LUNES',
+  '10560':'LUNES',
+  '10570':'LUNES',
+  '10580':'LUNES',
+  '10592':'LUNES',
+  '10600':'LUNES (L-V)',
+  '10601':'LUNES Y VIERNES',
+  '10610':'MIERCOLES Y VIERNES',
+  '10611':'MIERCOLES Y VIERNES',
+  '10612':'LUNES Y VIERNES',
+  '10613':'MIERCOLES Y VIERNES',
+  '10614':'MIERCOLES Y VIERNES',
+  '10617':'MIERCOLES Y VIERNES',
+  '10620':'MIERCOLES Y VIERNES',
+  '10630':'MARTES',
+  '10664':'LUNES',
+  '10665':'LUNES',
+  '10666':'LUNES',
+  '10672':'LUNES',
+  '10680':'LUNES',
+  '10689':'LUNES Y VIERNES',
+  '10691':'LUNES',
+  '10692':'LUNES',
+  '10693':'LUNES',
+  '10694':'LUNES',
+  '10695':'LUNES',
+  '10696':'MIERCOLES Y VIERNES',
+  '10700':'LUNES',
+  '10710':'LUNES',
+  '10720':'LUNES',
+  '10730':'LUNES',
+  '10731':'SIN DATO',
+  '10740':'LUNES',
+  '10750':'LUNES',
+  '10760':'SIN DATO',
+  '10800':'LUNES',
+  '10801':'LUNES Y VIERNES',
+  '10810':'LUNES',
+  '10812':'LUNES Y VIERNES',
+  '10820':'LUNES',
+  '10821':'LUNES',
+  '10823':'LUNES',
+  '10828':'LUNES',
+  '10830':'LUNES',
+  '10840':'LUNES Y VIERNES',
+  '10850':'LUNES Y VIERNES',
+  '10859':'LUNES',
+  '10860':'LUNES Y VIERNES',
+  '10861':'LUNES Y VIERNES',
+  '10867':'LUNES Y VIERNES',
+  '10868':'LUNES Y VIERNES',
+  '10879':'LUNES',
+  '10880':'LUNES',
+  '10882':'LUNES',
+  '10883':'LUNES',
+  '10891':'LUNES Y VIERNES',
+  '10892':'LUNES Y VIERNES',
+  '10896':'LUNES Y VIERNES',
+  '10900':'LUNES',
+  '10910':'LUNES',
+  '10930':'LUNES',
+  '10940':'LUNES',
+  '10950':'LUNES',
+  '10960':'LUNES',
+  '10970':'LUNES',
+  '10980':'LUNES',
+  '10982':'LUNES Y VIERNES',
+  '10990':'LUNES',
+  '10991':'LUNES',
+};
+
+const municipios = [
+  // --- BADAJOZ CAPITAL ---
+  {prov:'Badajoz', mun:'Badajoz', cp:'06001-06011', dist:0,   zona:'A', lat:38.8794, lon:-6.9707, dia:'LUNES A VIERNES'},
+
+  // --- ZONA A (0-25 km) ---
+  {prov:'Badajoz', mun:'Villanueva del Fresno', cp:'06110', dist:10, zona:'A', lat:38.403, lon:-7.091, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'La Albuera',           cp:'06107', dist:15, zona:'A', lat:38.729, lon:-6.839, dia:'LUNES, MIERCOLES, VIERNES'},
+  {prov:'Badajoz', mun:'Talavera la Real',      cp:'06150', dist:19, zona:'A', lat:38.886, lon:-6.745, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Puebla de Obando',      cp:'06139', dist:21, zona:'A', lat:39.033, lon:-6.833, dia:'LUNES Y VIERNES'},
+  {prov:'Badajoz', mun:'Entrín Bajo',           cp:'06109', dist:22, zona:'A', lat:38.720, lon:-6.956, dia:'LUNES, MIERCOLES, VIERNES'},
+  {prov:'Badajoz', mun:'Badajoz',        cp:'06195', dist:18, zona:'A', lat:38.879, lon:-6.971, dia:'LUNES, MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Olivenza',              cp:'06100', dist:24, zona:'A', lat:38.686, lon:-7.102, dia:'LUNES, MIERCOLES, VIERNES'},
+
+  // --- ZONA B (25-50 km) ---
+  {prov:'Badajoz', mun:'Higuera de Vargas',        cp:'06132', dist:29, zona:'B', lat:38.428, lon:-6.866, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Montijo',               cp:'06480', dist:31, zona:'B', lat:38.912, lon:-6.613, dia:'MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Pueblonuevo del Guadiana', cp:'06481', dist:33, zona:'B', lat:38.899, lon:-6.588, dia:'MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Quintana de la Serena',                 cp:'06450', dist:33, zona:'B', lat:38.742, lon:-5.673, dia:'JUEVES'},
+  {prov:'Badajoz', mun:'Táliga',  cp:'06133', dist:34, zona:'B', lat:38.42, lon:-7.076, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Cordobilla de Lácara',  cp:'06179', dist:38, zona:'B', lat:39.000, lon:-6.516, dia:'MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Alburquerque',          cp:'06510', dist:37, zona:'B', lat:39.214, lon:-7.000, dia:'LUNES'},
+  {prov:'Badajoz', mun:'Barcarrota',            cp:'06160', dist:41, zona:'B', lat:38.516, lon:-6.923, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Badajoz',   cp:'06183', dist:41, zona:'B', lat:38.879, lon:-6.971, dia:'LUNES, MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Alconchel',             cp:'06111', dist:43, zona:'B', lat:38.519, lon:-7.076, dia:'MIERCOLES Y VIERNES'},
+  {prov:'Badajoz', mun:'Salvaleón',             cp:'06174', dist:42, zona:'B', lat:38.508, lon:-6.859, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Valle de Santa Ana',            cp:'06178', dist:44, zona:'B', lat:38.286, lon:-6.997, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Alconchel',           cp:'06131', dist:44, zona:'B', lat:38.519, lon:-7.076, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'La Morera',               cp:'06176', dist:44, zona:'B', lat:38.491, lon:-6.827, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Esparragalejo',         cp:'06185', dist:46, zona:'B', lat:38.908, lon:-6.464, dia:'MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Badajoz',            cp:'06180', dist:47, zona:'B', lat:38.879, lon:-6.971, dia:'LUNES, MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Solana de los Barros',  cp:'06172', dist:46, zona:'B', lat:38.637, lon:-6.602, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Torremayor',            cp:'06186', dist:45, zona:'B', lat:38.882, lon:-6.479, dia:'MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Salvatierra de los Barros', cp:'06175', dist:45, zona:'B', lat:38.489, lon:-6.782, dia:'MIERCOLES'},
+  {prov:'Badajoz', mun:'Badajoz',           cp:'06184', dist:48, zona:'B', lat:38.879, lon:-6.971, dia:'MARTES Y JUEVES'},
+  {prov:'Badajoz', mun:'Torre de Miguel Sesmero', cp:'06173', dist:49, zona:'B', lat:38.608, lon:-6.556, dia:'MIERCOLES'},
+
+  // --- ZONA C (50-75 km) ---
+  {prov:'Badajoz', mun:'Calamonte',             cp:'06144', dist:51, zona:'C', lat:38.847, lon:-6.352},
+  {prov:'Badajoz', mun:'Badajoz',  cp:'06181', dist:51, zona:'C', lat:38.879, lon:-6.971},
+  {prov:'Badajoz', mun:'Badajoz',            cp:'06170', dist:52, zona:'C', lat:38.879, lon:-6.971},
+  {prov:'Badajoz', mun:'Higuera de Vargas',     cp:'06114', dist:51, zona:'C', lat:38.428, lon:-6.866},
+  {prov:'Badajoz', mun:'Cheles',                cp:'06112', dist:53, zona:'C', lat:38.529, lon:-7.234},
+  {prov:'Badajoz', mun:'Zahínos',               cp:'06113', dist:54, zona:'C', lat:38.394, lon:-6.965},
+  {prov:'Badajoz', mun:'Almendralejo',          cp:'06200', dist:53, zona:'C', lat:38.682, lon:-6.408},
+  {prov:'Badajoz', mun:'Aceuchal',              cp:'06202', dist:57, zona:'C', lat:38.639, lon:-6.393},
+  {prov:'Badajoz', mun:'Mérida',                cp:'06800', dist:55, zona:'C', lat:38.917, lon:-6.340},
+  {prov:'Badajoz', mun:'Badajoz',               cp:'06183', dist:55, zona:'C', lat:38.879, lon:-6.971},
+  {prov:'Badajoz', mun:'Torremejía',                cp:'06210', dist:56, zona:'C', lat:38.789, lon:-6.259},
+  {prov:'Badajoz', mun:'Valverde de Leganés',             cp:'06130', dist:61, zona:'C', lat:38.470, lon:-6.675},
+  {prov:'Badajoz', mun:'Villafranca de los Barros', cp:'06220', dist:61, zona:'C', lat:38.572, lon:-6.330},
+  {prov:'Badajoz', mun:'Villalba de los Barros', cp:'06221', dist:62, zona:'C', lat:38.558, lon:-6.287},
+  {prov:'Badajoz', mun:'San Vicente de Alcántara', cp:'06500', dist:62, zona:'C', lat:39.362, lon:-7.128},
+  {prov:'Badajoz', mun:'Jerez de los Caballeros', cp:'06380', dist:63, zona:'C', lat:38.329, lon:-6.774},
+  {prov:'Badajoz', mun:'Oliva de la Frontera',                cp:'06120', dist:63, zona:'C', lat:38.433, lon:-7.119},
+  {prov:'Badajoz', mun:'Villalba de los Barros',    cp:'06208', dist:63, zona:'C', lat:38.558, lon:-6.287},
+  {prov:'Cáceres',  mun:'Valencia de Alcántara', cp:'10500', dist:64, zona:'C', lat:39.415, lon:-7.243},
+  {prov:'Badajoz', mun:'Fuente del Maestre',    cp:'06217', dist:68, zona:'C', lat:38.536, lon:-6.425},
+  {prov:'Badajoz', mun:'Los Santos de Maimona', cp:'06230', dist:67, zona:'C', lat:38.453, lon:-6.376},
+  {prov:'Badajoz', mun:'La Parra',              cp:'06231', dist:68, zona:'C', lat:38.426, lon:-6.448},
+  {prov:'Badajoz', mun:'Badajoz',    cp:'06194', dist:66, zona:'C', lat:38.879, lon:-6.971},
+  {prov:'Badajoz', mun:'Palomas',               cp:'06196', dist:69, zona:'C', lat:38.744, lon:-6.138},
+  {prov:'Badajoz', mun:'Villanueva del Fresno',  cp:'06115', dist:68, zona:'C', lat:38.403, lon:-7.091},
+  {prov:'Badajoz', mun:'Oliva de la Frontera',  cp:'06119', dist:72, zona:'C', lat:38.433, lon:-7.119},
+  {prov:'Badajoz', mun:'Feria',                 cp:'06232', dist:72, zona:'C', lat:38.379, lon:-6.541},
+  {prov:'Badajoz', mun:'Ribera del Fresno',     cp:'06312', dist:72, zona:'C', lat:38.487, lon:-6.263},
+  {prov:'Badajoz', mun:'La Morera',             cp:'06311', dist:73, zona:'C', lat:38.491, lon:-6.827},
+  {prov:'Badajoz', mun:'Puebla de Sancho Pérez',              cp:'06310', dist:68, zona:'C', lat:38.379, lon:-6.349},
+  {prov:'Badajoz', mun:'Puebla de Sancho Pérez',      cp:'06310', dist:69, zona:'C', lat:38.379, lon:-6.349},
+  {prov:'Badajoz', mun:'Torremejía',             cp:'06210', dist:74, zona:'C', lat:38.789, lon:-6.259},
+  {prov:'Cáceres',  mun:'Aliseda',              cp:'10194', dist:72, zona:'C', lat:39.425, lon:-6.697},
+  {prov:'Cáceres',  mun:'Santiago de Alcántara',           cp:'10510', dist:67, zona:'C', lat:39.559, lon:-7.105},
+  {prov:'Cáceres',  mun:'Carbajo',             cp:'10511', dist:67, zona:'C', lat:39.508, lon:-7.061},
+
+  // --- ZONA D (75-120 km) ---
+  {prov:'Badajoz', mun:'Valencia del Mombuey',  cp:'06108', dist:75, zona:'D', lat:38.205, lon:-7.026},
+  {prov:'Badajoz', mun:'Valle de Santa Ana',    cp:'06117', dist:77, zona:'D', lat:38.286, lon:-6.997},
+  {prov:'Badajoz', mun:'Montemolín', cp:'06291', dist:79, zona:'D', lat:38.279, lon:-6.620},
+  {prov:'Badajoz', mun:'Calera de León',       cp:'06292', dist:79, zona:'D', lat:38.168, lon:-6.696},
+  {prov:'Badajoz', mun:'Cabeza la Vaca',  cp:'06293', dist:78, zona:'D', lat:38.393, lon:-6.591},
+  {prov:'Badajoz', mun:'Valle de Matamoros',    cp:'06118', dist:79, zona:'D', lat:38.261, lon:-6.912},
+  {prov:'Badajoz', mun:'Manchita',              cp:'06192', dist:79, zona:'D', lat:38.905, lon:-6.001},
+  {prov:'Badajoz', mun:'Guareña',               cp:'06470', dist:76, zona:'D', lat:38.869, lon:-5.930},
+  {prov:'Badajoz', mun:'Villagonzalo',          cp:'06471', dist:77, zona:'D', lat:38.882, lon:-5.907},
+  {prov:'Badajoz', mun:'Badajoz',              cp:'06193', dist:80, zona:'D', lat:38.879, lon:-6.971},
+  {prov:'Badajoz', mun:'Puebla de Obando',           cp:'06191', dist:81, zona:'D', lat:39.033, lon:-6.833},
+  {prov:'Badajoz', mun:'Bodonal de la Sierra',  cp:'06246', dist:87, zona:'D', lat:38.097, lon:-6.635},
+  {prov:'Badajoz', mun:'Montemolín',            cp:'06294', dist:88, zona:'D', lat:38.279, lon:-6.620},
+  {prov:'Badajoz', mun:'Medellín',              cp:'06411', dist:90, zona:'D', lat:38.962, lon:-5.890},
+  {prov:'Badajoz', mun:'Fuente de Cantos',      cp:'06240', dist:93, zona:'D', lat:38.170, lon:-6.296},
+  {prov:'Badajoz', mun:'Calera de León',        cp:'06245', dist:95, zona:'D', lat:38.168, lon:-6.696},
+  {prov:'Badajoz', mun:'Don Benito',              cp:'06412', dist:95, zona:'D', lat:38.956, lon:-5.860},
+  {prov:'Badajoz', mun:'Casas de Don Pedro',            cp:'06770', dist:95, zona:'D', lat:39.131, lon:-5.281},
+  {prov:'Badajoz', mun:'Don Benito',            cp:'06400', dist:96, zona:'D', lat:38.956, lon:-5.860},
+  {prov:'Badajoz', mun:'La Garrovilla',           cp:'06870', dist:96, zona:'D', lat:38.932, lon:-6.362},
+  {prov:'Badajoz', mun:'Llera',   cp:'06227', dist:97, zona:'D', lat:38.369, lon:-5.901},
+  {prov:'Badajoz', mun:'Hornachos',              cp:'06228', dist:97, zona:'D', lat:38.380, lon:-5.815},
+  {prov:'Badajoz', mun:'Monesterio',            cp:'06260', dist:98, zona:'D', lat:38.083, lon:-6.265},
+  {prov:'Badajoz', mun:'La Garrovilla', cp:'06870', dist:99, zona:'D', lat:38.932, lon:-6.362},
+  {prov:'Badajoz', mun:'Usagre',                cp:'06907', dist:100, zona:'D', lat:38.349, lon:-6.021},
+  {prov:'Badajoz', mun:'Hinojosa del Valle',        cp:'06226', dist:100, zona:'D', lat:38.159, lon:-5.993},
+  {prov:'Badajoz', mun:'Segura de León',        cp:'06247', dist:100, zona:'D', lat:38.089, lon:-6.519},
+  {prov:'Badajoz', mun:'Segura de León',       cp:'06270', dist:100, zona:'D', lat:38.077, lon:-6.547},
+  {prov:'Badajoz', mun:'Montemolín',                 cp:'06908', dist:103, zona:'D', lat:38.279, lon:-6.620},
+  {prov:'Badajoz', mun:'Cristina',               cp:'06479', dist:103, zona:'D', lat:39.060, lon:-5.634},
+  {prov:'Badajoz', mun:'La Haba',               cp:'06480', dist:103, zona:'D', lat:38.922, lon:-5.867},
+  {prov:'Badajoz', mun:'Trasierra',   cp:'06909', dist:105, zona:'D', lat:38.186, lon:-6.254},
+  {prov:'Badajoz', mun:'Orellana la Vieja',     cp:'06740', dist:106, zona:'D', lat:38.989, lon:-5.543},
+  {prov:'Badajoz', mun:'Ribera del Fresno', cp:'06225', dist:106, zona:'D', lat:38.487, lon:-6.263},
+  {prov:'Badajoz', mun:'Llerena',               cp:'06900', dist:108, zona:'D', lat:38.236, lon:-6.023},
+  {prov:'Badajoz', mun:'Orellana de la Sierra', cp:'06742', dist:110, zona:'D', lat:39.018, lon:-5.538},
+  {prov:'Badajoz', mun:'Navalvillar de Pela',   cp:'06760', dist:110, zona:'D', lat:38.985, lon:-5.490},
+  {prov:'Badajoz', mun:'Esparragosa de Lares',  cp:'06490', dist:111, zona:'D', lat:39.076, lon:-5.166},
+  {prov:'Badajoz', mun:'Granja de Torrehermosa',             cp:'06910', dist:112, zona:'D', lat:38.352, lon:-5.580},
+  {prov:'Badajoz', mun:'Talarrubias',           cp:'06761', dist:113, zona:'D', lat:39.055, lon:-5.243},
+  {prov:'Badajoz', mun:'Trasierra',             cp:'06911', dist:113, zona:'D', lat:38.186, lon:-6.254},
+  {prov:'Badajoz', mun:'Peraleda del Zaucejo',  cp:'06912', dist:115, zona:'D', lat:38.423, lon:-5.499},
+  {prov:'Badajoz', mun:'Peraleda del Zaucejo',           cp:'06919', dist:115, zona:'D', lat:38.423, lon:-5.499},
+  {prov:'Badajoz', mun:'Herrera del Duque', cp:'06670', dist:115, zona:'D', lat:39.169, lon:-5.035},
+  {prov:'Badajoz', mun:'Castilblanco',     cp:'06680', dist:118, zona:'D', lat:39.29, lon:-5.198},
+  {prov:'Badajoz', mun:'Trujillanos', cp:'06892', dist:118, zona:'D', lat:38.944, lon:-6.297},
+  {prov:'Badajoz', mun:'Mirandilla', cp:'06891', dist:117, zona:'D', lat:38.892, lon:-6.282},
+  {prov:'Badajoz', mun:'San Pedro de Mérida',  cp:'06893', dist:115, zona:'D', lat:38.904, lon:-6.319},
+  {prov:'Badajoz', mun:'Villanueva de la Serena', cp:'06720', dist:117, zona:'D', lat:38.979, lon:-5.807},
+  {prov:'Badajoz', mun:'Orellana de la Sierra',    cp:'06750', dist:91, zona:'D', lat:38.986, lon:-5.541},
+  {prov:'Badajoz', mun:'Puebla del Maestre', cp:'06906', dist:110, zona:'D', lat:38.189, lon:-6.141},
+  {prov:'Badajoz', mun:'Puebla de Alcocer',     cp:'06691', dist:120, zona:'D', lat:38.968, lon:-5.261},
+  {prov:'Badajoz', mun:'Fregenal de la Sierra', cp:'06340', dist:83, zona:'D', lat:38.165, lon:-6.655},
+  {prov:'Badajoz', mun:'Valencia del Ventoso',  cp:'06295', dist:83, zona:'D', lat:38.358, lon:-6.278},
+  {prov:'Cáceres',  mun:'Cáceres',              cp:'10001', dist:84, zona:'D', lat:39.476, lon:-6.372},
+  {prov:'Cáceres',  mun:'Arroyo de la Luz',     cp:'10900', dist:82, zona:'D', lat:39.478, lon:-6.582},
+  {prov:'Cáceres',  mun:'Casar de Cáceres',     cp:'10190', dist:84, zona:'D', lat:39.523, lon:-6.372},
+  {prov:'Cáceres',  mun:'Malpartida de Cáceres', cp:'10910', dist:87, zona:'D', lat:39.441, lon:-6.514},
+  {prov:'Cáceres',  mun:'Brozas',               cp:'10950', dist:82, zona:'D', lat:39.611, lon:-6.794},
+  {prov:'Cáceres',  mun:'Alcántara', cp:'10990', dist:80, zona:'D', lat:39.689, lon:-6.884},
+  {prov:'Cáceres',  mun:'Villa del Rey',    cp:'10960', dist:85, zona:'D', lat:39.635, lon:-6.653},
+  {prov:'Cáceres',  mun:'Garrovillas de Alconétar',              cp:'10940', dist:86, zona:'D', lat:39.584, lon:-6.551},
+  {prov:'Cáceres',  mun:'Valencia de Alcántara',              cp:'10514', dist:80, zona:'D', lat:39.415, lon:-7.243},
+  {prov:'Cáceres',  mun:'Alcuéscar',    cp:'10160', dist:82, zona:'D', lat:39.164, lon:-6.187},
+  {prov:'Cáceres',  mun:'Alcántara',            cp:'10980', dist:94, zona:'D', lat:39.727, lon:-6.882},
+  {prov:'Cáceres',  mun:'Garrovillas de Alconétar', cp:'10940', dist:96, zona:'D', lat:39.584, lon:-6.551},
+  {prov:'Cáceres',  mun:'Miajadas',             cp:'10100', dist:103, zona:'D', lat:39.152, lon:-5.905},
+  {prov:'Cáceres',  mun:'Zorita',               cp:'10130', dist:113, zona:'D', lat:39.298, lon:-5.700},
+  {prov:'Cáceres',  mun:'Garciaz',              cp:'10121', dist:115, zona:'D', lat:39.369, lon:-5.657},
+  {prov:'Cáceres',  mun:'Trujillo',             cp:'10200', dist:114, zona:'D', lat:39.461, lon:-5.883},
+  {prov:'Cáceres',  mun:'Montánchez',           cp:'10170', dist:95, zona:'D', lat:39.226, lon:-6.154},
+  {prov:'Cáceres',  mun:'Zarza la Mayor',       cp:'10930', dist:110, zona:'D', lat:39.866, lon:-6.840},
+  {prov:'Cáceres',  mun:'Zarza de Montánchez',  cp:'10171', dist:98, zona:'D', lat:39.189, lon:-6.070},
+  {prov:'Cáceres',  mun:'Zarza de Montánchez',        cp:'10189', dist:88, zona:'D', lat:39.177, lon:-6.070},
+  {prov:'Cáceres',  mun:'Alcuéscar',            cp:'10163', dist:88, zona:'D', lat:39.159, lon:-6.236},
+  {prov:'Cáceres',  mun:'Barrado',          cp:'10696', dist:109, zona:'D', lat:40.071, lon:-5.823},
+  {prov:'Cáceres',  mun:'Serradilla',          cp:'10695', dist:118, zona:'D', lat:39.835, lon:-5.961},
+
+  // --- ZONA E (120-160 km) ---
+  {prov:'Badajoz', mun:'Siruela',              cp:'06650', dist:120, zona:'E', lat:39.016, lon:-5.073},
+  {prov:'Badajoz', mun:'Castuera',              cp:'06420', dist:125, zona:'E', lat:38.714, lon:-5.541},
+  {prov:'Badajoz', mun:'Acedera',  cp:'06730', dist:125, zona:'E', lat:38.962, lon:-5.808},
+  {prov:'Badajoz', mun:'Siruela',               cp:'06648', dist:125, zona:'E', lat:38.971, lon:-5.035},
+  {prov:'Badajoz', mun:'Capilla',               cp:'06649', dist:128, zona:'E', lat:38.826, lon:-5.019},
+  {prov:'Badajoz', mun:'Azuaga',                cp:'06920', dist:131, zona:'E', lat:38.259, lon:-5.675},
+  {prov:'Badajoz', mun:'Peñalsordo',            cp:'06648', dist:130, zona:'E', lat:38.774, lon:-5.108},
+  {prov:'Badajoz', mun:'Zarza-Capilla',         cp:'06649', dist:130, zona:'E', lat:38.866, lon:-4.980},
+  {prov:'Badajoz', mun:'Garlitos',              cp:'06648', dist:132, zona:'E', lat:38.935, lon:-5.158},
+  {prov:'Badajoz', mun:'Ahillones',                 cp:'06940', dist:121, zona:'E', lat:38.318, lon:-5.695},
+  {prov:'Badajoz', mun:'Ahillones',       cp:'06940', dist:122, zona:'E', lat:38.318, lon:-5.695},
+  {prov:'Badajoz', mun:'Campanario',       cp:'06460', dist:151, zona:'E', lat:38.868, lon:-5.607},
+  {prov:'Cáceres',  mun:'Logrosán',             cp:'10120', dist:121, zona:'E', lat:39.342, lon:-5.483},
+  {prov:'Cáceres',  mun:'Coria',                cp:'10800', dist:128, zona:'E', lat:39.981, lon:-6.534},
+  {prov:'Cáceres',  mun:'Torrejoncillo',        cp:'10820', dist:121, zona:'E', lat:39.961, lon:-6.482},
+  {prov:'Cáceres',  mun:'Montehermoso',         cp:'10810', dist:126, zona:'E', lat:40.074, lon:-6.351},
+  {prov:'Cáceres',  mun:'Moraleja',             cp:'10840', dist:135, zona:'E', lat:40.074, lon:-6.658},
+  {prov:'Cáceres',  mun:'Hoyos',             cp:'10850', dist:139, zona:'E', lat:40.168, lon:-6.741},
+  {prov:'Cáceres',  mun:'Gata',                cp:'10860', dist:137, zona:'E', lat:40.215, lon:-6.567},
+  {prov:'Cáceres',  mun:'Perales del Puerto',   cp:'10861', dist:140, zona:'E', lat:40.155, lon:-6.759},
+  {prov:'Cáceres',  mun:'Perales del Puerto',  cp:'10896', dist:142, zona:'E', lat:40.155, lon:-6.759},
+  {prov:'Cáceres',  mun:'Eljas',                cp:'10891', dist:143, zona:'E', lat:40.226, lon:-6.903},
+  {prov:'Cáceres',  mun:'Guadalupe',            cp:'10140', dist:156, zona:'E', lat:39.455, lon:-5.324},
+  {prov:'Cáceres',  mun:'Cañamero',             cp:'10136', dist:139, zona:'E', lat:39.382, lon:-5.382},
+  {prov:'Cáceres',  mun:'Zorita',            cp:'10130', dist:128, zona:'E', lat:39.297, lon:-5.706},
+  {prov:'Cáceres',  mun:'Alía',                 cp:'10137', dist:142, zona:'E', lat:39.352, lon:-5.218},
+  {prov:'Cáceres',  mun:'Baños de Montemayor',  cp:'10750', dist:165, zona:'F', lat:40.302, lon:-5.862, dia:'LUNES'},
+  {prov:'Cáceres',  mun:'Casas del Monte', cp:'10730', dist:158, zona:'E', lat:40.246, lon:-5.888},
+  {prov:'Cáceres',  mun:'Zorita',            cp:'10130', dist:130, zona:'E', lat:39.297, lon:-5.706},
+  {prov:'Cáceres',  mun:'Plasencia',            cp:'10600', dist:148, zona:'E', lat:40.030, lon:-6.094},
+  {prov:'Cáceres',  mun:'Cabezuela del Valle',            cp:'10610', dist:143, zona:'E', lat:40.079, lon:-5.968},
+  {prov:'Cáceres',  mun:'Valdastillas',             cp:'10614', dist:140, zona:'E', lat:40.07, lon:-5.891},
+  {prov:'Cáceres',  mun:'Caminomorisco',         cp:'10620', dist:168, zona:'F', lat:40.27, lon:-6.290},
+  {prov:'Cáceres',  mun:'Casas de Miravete',              cp:'10360', dist:148, zona:'E', lat:39.703, lon:-5.787},
+  {prov:'Cáceres',  mun:'Belvís de Monroy',      cp:'10394', dist:150, zona:'E', lat:39.752, lon:-5.627},
+  {prov:'Cáceres',  mun:'Belvís de Monroy',           cp:'10394', dist:156, zona:'E', lat:39.752, lon:-5.627},
+  {prov:'Cáceres',  mun:'Belvís de Monroy',   cp:'10394', dist:152, zona:'E', lat:39.752, lon:-5.627},
+  {prov:'Cáceres',  mun:'Almaraz',          cp:'10396', dist:158, zona:'E', lat:39.809, lon:-5.698},
+  {prov:'Cáceres',  mun:'Saucedilla',           cp:'10395', dist:143, zona:'E', lat:39.805, lon:-5.730},
+  {prov:'Cáceres',  mun:'Berrocalejo',             cp:'10392', dist:128, zona:'E', lat:39.803, lon:-5.471},
+  {prov:'Cáceres',  mun:'Berrocalejo',           cp:'10392', dist:155, zona:'E', lat:39.803, lon:-5.471},
+
+  // --- ZONA F (160-200 km) ---
+  {prov:'Cáceres',  mun:'Navalmoral de la Mata', cp:'10300', dist:167, zona:'F', lat:39.893, lon:-5.544},
+  {prov:'Cáceres',  mun:'Valdehúncar',            cp:'10393', dist:163, zona:'F', lat:39.975, lon:-5.590},
+  {prov:'Cáceres',  mun:'Jaraíz de la Vera',    cp:'10400', dist:168, zona:'F', lat:40.058, lon:-5.678},
+  {prov:'Cáceres',  mun:'Cuacos de Yuste',      cp:'10430', dist:172, zona:'F', lat:40.088, lon:-5.694},
+  {prov:'Cáceres',  mun:'Aldeanueva de la Vera',     cp:'10440', dist:174, zona:'F', lat:40.043, lon:-5.606},
+  {prov:'Cáceres',  mun:'Losar de la Vera',   cp:'10460', dist:171, zona:'F', lat:40.095, lon:-5.565},
+  {prov:'Cáceres',  mun:'Tejeda de Tiétar',     cp:'10420', dist:165, zona:'F', lat:40.139, lon:-5.869},
+  {prov:'Cáceres',  mun:'Villanueva de la Vera',     cp:'10470', dist:175, zona:'F', lat:40.103, lon:-5.622},
+  {prov:'Cáceres',  mun:'Madrigal de la Vera', cp:'10480', dist:178, zona:'F', lat:40.141, lon:-5.505},
+  {prov:'Cáceres',  mun:'Valverde de la Vera', cp:'10490', dist:178, zona:'F', lat:40.173, lon:-5.469},
+  {prov:'Cáceres',  mun:'Losar de la Vera', cp:'10460', dist:172, zona:'F', lat:40.095, lon:-5.565},
+  {prov:'Cáceres',  mun:'Madrigal de la Vera',  cp:'10484', dist:181, zona:'F', lat:40.148, lon:-5.529},
+  {prov:'Cáceres',  mun:'Viandar de la Vera',   cp:'10482', dist:177, zona:'F', lat:40.179, lon:-5.506},
+  {prov:'Cáceres',  mun:'Talaveruela de la Vera', cp:'10481', dist:176, zona:'F', lat:40.154, lon:-5.525},
+  {prov:'Cáceres',  mun:'Jarandilla de la Vera', cp:'10450', dist:179, zona:'F', lat:40.130, lon:-5.659},
+  {prov:'Cáceres',  mun:'Hervás',               cp:'10700', dist:167, zona:'F', lat:40.273, lon:-5.869},
+  {prov:'Cáceres',  mun:'Zarza de Granadilla',  cp:'10710', dist:165, zona:'F', lat:40.197, lon:-6.072},
+  {prov:'Cáceres',  mun:'Villar de Plasencia',      cp:'10720', dist:164, zona:'F', lat:40.189, lon:-6.024},
+  {prov:'Cáceres',  mun:'Aldeanueva del Camino',          cp:'10740', dist:165, zona:'F', lat:40.273, lon:-5.907},
+  {prov:'Cáceres',  mun:'Caminomorisco',              cp:'10620', dist:167, zona:'F', lat:40.27, lon:-6.290},
+  {prov:'Cáceres',  mun:'Tornavacas',   cp:'10611', dist:164, zona:'F', lat:40.185, lon:-5.881},
+  {prov:'Cáceres',  mun:'Navaconcejo',          cp:'10613', dist:161, zona:'F', lat:40.112, lon:-5.938},
+  {prov:'Cáceres',  mun:'Cabezuela del Valle',  cp:'10610', dist:164, zona:'F', lat:40.079, lon:-5.968},
+  {prov:'Cáceres',  mun:'Valdastillas',                cp:'10614', dist:172, zona:'F', lat:40.07, lon:-5.891},
+  {prov:'Cáceres',  mun:'Caminomorisco',           cp:'10630', dist:187, zona:'F', lat:40.27, lon:-6.290},
+  {prov:'Cáceres',  mun:'Casar de Palomero',    cp:'10731', dist:162, zona:'F', lat:40.262, lon:-6.391},
+
+  {prov:'Cáceres',  mun:'Abadia',  cp:'10748', dist:176, zona:'F', lat:40.241, lon:-5.929},
+  {prov:'Cáceres',  mun:'Acebo',  cp:'10857', dist:150, zona:'E', lat:40.225, lon:-6.77},
+  {prov:'Cáceres',  mun:'Ahigal',  cp:'10650', dist:148, zona:'E', lat:40.093, lon:-6.253},
+  {prov:'Cáceres',  mun:'Aldea del Cano',  cp:'10163', dist:87, zona:'D', lat:39.45, lon:-6.28},
+  {prov:'Cáceres',  mun:'Aldehuela de Jerte',  cp:'10671', dist:153, zona:'E', lat:40.074, lon:-6.091},
+  {prov:'Cáceres',  mun:'Arroyomolinos de la Vera',  cp:'10410', dist:174, zona:'F', lat:40.102, lon:-5.72},
+  {prov:'Cáceres',  mun:'Cabezabellosa',  cp:'10729', dist:169, zona:'F', lat:40.208, lon:-6.021},
+  {prov:'Cáceres',  mun:'Cabrero',  cp:'10680', dist:146, zona:'E', lat:40.01, lon:-6.1},
+  {prov:'Cáceres',  mun:'Cadalso',  cp:'10865', dist:150, zona:'E', lat:40.208, lon:-6.63},
+  {prov:'Cáceres',  mun:'Campillo de Deleitosa',  cp:'10370', dist:137, zona:'E', lat:39.52, lon:-5.62},
+  {prov:'Cáceres',  mun:'Canaveral',  cp:'10591', dist:121, zona:'E', lat:39.76, lon:-6.14},
+  {prov:'Cáceres',  mun:'Carcaboso',  cp:'10670', dist:143, zona:'E', lat:40.01, lon:-6.176},
+  {prov:'Cáceres',  mun:'Casares de las Hurdes',  cp:'10628', dist:164, zona:'F', lat:40.285, lon:-6.37},
+  {prov:'Cáceres',  mun:'Casas de Don Gomez',  cp:'10818', dist:133, zona:'E', lat:40.033, lon:-6.561},
+  {prov:'Cáceres',  mun:'Casas del Castanar',  cp:'10616', dist:165, zona:'F', lat:40.063, lon:-5.817},
+  {prov:'Cáceres',  mun:'Casatejada',  cp:'10309', dist:159, zona:'E', lat:39.86, lon:-5.63},
+  {prov:'Cáceres',  mun:'Casillas de Coria',  cp:'10800', dist:122, zona:'E', lat:39.93, lon:-6.56},
+  {prov:'Cáceres',  mun:'Castanar de Ibor',  cp:'10340', dist:154, zona:'E', lat:39.531, lon:-5.394},
+  {prov:'Cáceres',  mun:'Ceclavin',  cp:'10870', dist:119, zona:'D', lat:39.911, lon:-6.612},
+  {prov:'Cáceres',  mun:'Cerezo',  cp:'10663', dist:154, zona:'E', lat:40.119, lon:-6.174},
+  {prov:'Cáceres',  mun:'Cilleros',  cp:'10895', dist:135, zona:'E', lat:40.087, lon:-6.791},
+  {prov:'Cáceres',  mun:'Collado',  cp:'10860', dist:154, zona:'E', lat:40.216, lon:-6.508},
+  {prov:'Cáceres',  mun:'Descargamaria',  cp:'10866', dist:153, zona:'E', lat:40.238, lon:-6.647},
+  {prov:'Cáceres',  mun:'El Gordo',  cp:'10393', dist:156, zona:'E', lat:39.81, lon:-5.62},
+  {prov:'Cáceres',  mun:'Fresnedoso de Ibor',  cp:'10328', dist:157, zona:'E', lat:39.566, lon:-5.38},
+  {prov:'Cáceres',  mun:'Garganta la Olla',  cp:'10412', dist:172, zona:'F', lat:40.095, lon:-5.732},
+  {prov:'Cáceres',  mun:'Gargantilla',  cp:'10749', dist:177, zona:'F', lat:40.259, lon:-5.942},
+  {prov:'Cáceres',  mun:'Garvin',  cp:'10333', dist:156, zona:'E', lat:39.662, lon:-5.475},
+  {prov:'Cáceres',  mun:'Guijo de Coria',  cp:'10815', dist:143, zona:'E', lat:40.1, lon:-6.46},
+  {prov:'Cáceres',  mun:'Guijo de Santa Barbara',  cp:'10459', dist:187, zona:'F', lat:40.208, lon:-5.635},
+  {prov:'Cáceres',  mun:'Higuera',  cp:'10350', dist:148, zona:'E', lat:39.79, lon:-5.72},
+  {prov:'Cáceres',  mun:'Holguera',  cp:'10829', dist:132, zona:'E', lat:39.955, lon:-6.31},
+  {prov:'Cáceres',  mun:'Huelaga',  cp:'10840', dist:134, zona:'E', lat:40.07, lon:-6.72},
+  {prov:'Cáceres',  mun:'Jarilla',  cp:'10691', dist:144, zona:'E', lat:40.01, lon:-6.15},
+  {prov:'Cáceres',  mun:'La Aldea del Obispo',  cp:'10515', dist:61, zona:'C', lat:39.42, lon:-7.12},
+  {prov:'Cáceres',  mun:'La Cumbre',  cp:'10135', dist:111, zona:'D', lat:39.18, lon:-5.75},
+  {prov:'Cáceres',  mun:'La Garganta',  cp:'10759', dist:184, zona:'F', lat:40.315, lon:-5.899},
+  {prov:'Cáceres',  mun:'La Pesga',  cp:'10649', dist:147, zona:'E', lat:40.073, lon:-6.244},
+  {prov:'Cáceres',  mun:'Ladrillar',  cp:'10624', dist:166, zona:'F', lat:40.292, lon:-6.349},
+  {prov:'Cáceres',  mun:'Majadas',  cp:'10529', dist:159, zona:'E', lat:39.822, lon:-5.59},
+  {prov:'Cáceres',  mun:'Marchagaz',  cp:'10662', dist:154, zona:'E', lat:40.122, lon:-6.19},
+  {prov:'Cáceres',  mun:'Millanes',  cp:'10392', dist:165, zona:'F', lat:39.8, lon:-5.47},
+  {prov:'Cáceres',  mun:'Navas del Madrono',  cp:'10970', dist:76, zona:'D', lat:39.56, lon:-6.91},
+  {prov:'Cáceres',  mun:'Navezuelas',  cp:'10374', dist:147, zona:'E', lat:39.508, lon:-5.476},
+  {prov:'Cáceres',  mun:'Nunomoral',  cp:'10626', dist:165, zona:'F', lat:40.288, lon:-6.374},
+  {prov:'Cáceres',  mun:'Oliva de Plasencia',  cp:'10667', dist:155, zona:'E', lat:40.116, lon:-6.136},
+  {prov:'Cáceres',  mun:'Palomero',  cp:'10660', dist:156, zona:'E', lat:40.172, lon:-6.261},
+  {prov:'Cáceres',  mun:'Pasaron de la Vera',  cp:'10411', dist:175, zona:'F', lat:40.141, lon:-5.755},
+  {prov:'Cáceres',  mun:'Peraleda de la Mata',  cp:'10334', dist:169, zona:'F', lat:39.836, lon:-5.457},
+  {prov:'Cáceres',  mun:'Peraleda de San Roman',  cp:'10335', dist:167, zona:'F', lat:39.82, lon:-5.46},
+  {prov:'Cáceres',  mun:'Pinofranqueado',  cp:'10638', dist:157, zona:'E', lat:40.244, lon:-6.516},
+  {prov:'Cáceres',  mun:'Piornal',  cp:'10615', dist:162, zona:'F', lat:40.054, lon:-5.857},
+  {prov:'Cáceres',  mun:'Pozuelo de Zarzon',  cp:'10813', dist:135, zona:'E', lat:40.041, lon:-6.504},
+  {prov:'Cáceres',  mun:'Puerto de Santa Cruz',  cp:'10250', dist:124, zona:'E', lat:39.38, lon:-5.69},
+  {prov:'Cáceres',  mun:'Robledillo de la Vera',  cp:'10493', dist:190, zona:'F', lat:40.17, lon:-5.522},
+  {prov:'Cáceres',  mun:'Rosalejo',  cp:'10390', dist:137, zona:'E', lat:39.73, lon:-5.83},
+  {prov:'Cáceres',  mun:'Ruanes',  cp:'10272', dist:104, zona:'D', lat:39.31, lon:-5.899},
+  {prov:'Cáceres',  mun:'Salvatierra de Santiago',  cp:'10280', dist:101, zona:'D', lat:39.34, lon:-5.96},
+  {prov:'Cáceres',  mun:'San Martin de Trevejo',  cp:'10892', dist:152, zona:'E', lat:40.24, lon:-6.82},
+  {prov:'Cáceres',  mun:'Santa Ana',  cp:'10164', dist:86, zona:'D', lat:39.53, lon:-6.43},
+  {prov:'Cáceres',  mun:'Santa Cruz de Paniagua',  cp:'10661', dist:151, zona:'E', lat:40.115, lon:-6.254},
+  {prov:'Cáceres',  mun:'Santibanez el Bajo',  cp:'10812', dist:129, zona:'E', lat:39.98, lon:-6.5},
+  {prov:'Cáceres',  mun:'Segura de Toro',  cp:'10739', dist:173, zona:'F', lat:40.207, lon:-5.92},
+  {prov:'Cáceres',  mun:'Serrejon',  cp:'10528', dist:160, zona:'E', lat:39.84, lon:-5.597},
+  {prov:'Cáceres',  mun:'Torre de Don Miguel',  cp:'10864', dist:153, zona:'E', lat:40.228, lon:-6.618},
+  {prov:'Cáceres',  mun:'Torrecilla de los Angeles',  cp:'10869', dist:155, zona:'E', lat:40.235, lon:-6.558},
+  {prov:'Cáceres',  mun:'Torremenga',  cp:'10413', dist:164, zona:'F', lat:40.013, lon:-5.76},
+  {prov:'Cáceres',  mun:'Valdelacasa de Tajo',  cp:'10332', dist:163, zona:'F', lat:39.66, lon:-5.372},
+  {prov:'Cáceres',  mun:'Valverde del Fresno',  cp:'10890', dist:150, zona:'E', lat:40.227, lon:-6.896},
+  {prov:'Cáceres',  mun:'Villa del Campo',  cp:'10814', dist:142, zona:'E', lat:40.092, lon:-6.452},
+  {prov:'Cáceres',  mun:'Villamiel',  cp:'10893', dist:152, zona:'E', lat:40.245, lon:-6.857},
+  {prov:'Cáceres',  mun:'Villar del Pedroso',  cp:'10330', dist:163, zona:'F', lat:39.674, lon:-5.382},
+  {prov:'Cáceres',  mun:'Villasbuenas de Gata',  cp:'10858', dist:151, zona:'E', lat:40.221, lon:-6.718},
+  {prov:'Badajoz',  mun:'Atalaya',  cp:'06329', dist:80, zona:'D', lat:38.267, lon:-6.488},
+  {prov:'Badajoz',  mun:'Corte de Peleas',  cp:'06208', dist:47, zona:'B', lat:38.72, lon:-6.47},
+  {prov:'Badajoz',  mun:'El Carrascalejo',  cp:'06890', dist:70, zona:'C', lat:38.95, lon:-6.17},
+  {prov:'Badajoz',  mun:'Esparragosa de la Serena',  cp:'06439', dist:129, zona:'E', lat:38.754, lon:-5.49},
+  {prov:'Badajoz',  mun:'Helechosa de los Montes',  cp:'06692', dist:179, zona:'F', lat:39.415, lon:-5.018},
+  {prov:'Badajoz',  mun:'La Nava de Santiago',  cp:'06191', dist:23, zona:'A', lat:39.05, lon:-6.83},
+  {prov:'Badajoz',  mun:'La Zarza',  cp:'06711', dist:99, zona:'D', lat:38.94, lon:-5.83},
+  {prov:'Badajoz',  mun:'Medina de las Torres',  cp:'06320', dist:85, zona:'D', lat:38.337, lon:-6.274},
+  {prov:'Badajoz',  mun:'Nogales',  cp:'06174', dist:52, zona:'C', lat:38.47, lon:-6.67},
+  {prov:'Badajoz',  mun:'Puebla de la Calzada',  cp:'06480', dist:30, zona:'B', lat:38.88, lon:-6.62},
+  {prov:'Badajoz',  mun:'Sancti-Spiritus',  cp:'06280', dist:92, zona:'D', lat:38.13, lon:-6.52},
+  {prov:'Badajoz',  mun:'Santa Amalia',  cp:'06713', dist:110, zona:'D', lat:38.87, lon:-5.7},
+  {prov:'Badajoz',  mun:'Santa Marta',  cp:'06230', dist:58, zona:'C', lat:38.547, lon:-6.449},
+  {prov:'Badajoz',  mun:'Valdelacalzada',  cp:'06800', dist:22, zona:'A', lat:38.94, lon:-6.73},
+  {prov:'Badajoz',  mun:'Villar del Rey',  cp:'06139', dist:49, zona:'B', lat:39.31, lon:-7.1},
+
+  {prov:'Cáceres',  mun:'Cedillo',  cp:'10513', dist:93, zona:'D', lat:39.633, lon:-7.450},
+];
+
+// ============================================================
+// INICIALIZAR MAPA
+// ============================================================
+const map = L.map('map', {
+  center: [39.3, -6.2],
+  zoom: 8,
+  zoomControl: true
+});
+
+// Tile oscuro
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
+  maxZoom: 18
+}).addTo(map);
+
+// ============================================================
+// ANILLOS DE ZONA (círculos concéntricos)
+// ============================================================
+const origen = [38.8794, -6.9707];
+const radiosKm = [25, 50, 75, 120, 160, 200];
+const zonasKeys = ['A', 'B', 'C', 'D', 'E', 'F'];
+
+radiosKm.forEach((r, i) => {
+  L.circle(origen, {
+    radius: r * 1000,
+    color: ZONAS[zonasKeys[i]].color,
+    weight: 1.5,
+    opacity: 0.5,
+    fill: true,
+    fillColor: ZONAS[zonasKeys[i]].color,
+    fillOpacity: 0.04,
+    dashArray: '6 4',
+    interactive: false
+  }).addTo(map);
+});
+
+// Colores por día de reparto
+const DIA_COLORS = {
+  'LUNES':                    '#00bcd4',
+  'MARTES':                   '#8bc34a',
+  'MIERCOLES':                '#ff9800',
+  'JUEVES':                   '#9c27b0',
+  'VIERNES':                  '#f44336',
+  'LUNES, MIERCOLES, VIERNES':'#00acc1',
+  'LUNES, MARTES Y JUEVES':   '#43a047',
+  'LUNES, VIERNES':           '#26c6da',
+  'MARTES Y JUEVES':          '#7b1fa2',
+  'LUNES, JUEVES Y VIERNES':  '#e91e63',
+  'LUNES A VIERNES':          '#ffd600',
+  'SIN DATO':                 '#444',
+};
+
+function getDiaColor(dia) {
+  if (!dia) return '#444';
+  const d = dia.toUpperCase();
+  if (DIA_COLORS[d]) return DIA_COLORS[d];
+  if (d.includes('LUNES') && d.includes('VIERNES')) return '#00acc1';
+  if (d.includes('LUNES') && d.includes('JUEVES')) return '#43a047';
+  if (d.includes('MARTES') && d.includes('JUEVES')) return '#7b1fa2';
+  if (d.includes('LUNES')) return '#00bcd4';
+  if (d.includes('MARTES')) return '#8bc34a';
+  if (d.includes('MIERCOLES')) return '#ff9800';
+  if (d.includes('JUEVES')) return '#9c27b0';
+  if (d.includes('VIERNES')) return '#f44336';
+  return '#666';
+}
+
+// ============================================================
+// MARCADORES
+// ============================================================
+let modoVista = 'zona'; // 'zona' o 'dia'
+let filtroActivo = 'TODOS';
+const todosMarkersData = [];
+
+function makeIcon(zona, dia, modo) {
+  const c = modo === 'dia' ? getDiaColor(dia) : ZONAS[zona].color;
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      width:10px; height:10px; border-radius:50%;
+      background:${c}; border:1.5px solid rgba(255,255,255,0.5);
+      box-shadow:0 0 5px ${c}88;
+    "></div>`,
+    iconSize: [10, 10],
+    iconAnchor: [5, 5]
+  });
+}
+
+// Agrupar por municipio (mismo punto → mismo marcador)
+const seen = {};
+municipios.forEach(m => {
+  const key = `${m.lat}_${m.lon}`;
+  if (seen[key]) {
+    seen[key].cps.push(m.cp);
+    return;
+  }
+  seen[key] = { ...m, cps: [m.cp] };
+});
+
+// Función auxiliar: obtiene el día de un CP (busca en cpDias todos los CPs del municipio)
+function getDiaPorCps(cps) {
+  for (const cp of cps) {
+    const key = cp.replace(/\D/g,'').padStart(5,'0');
+    if (cpDias[key] && cpDias[key] !== 'SIN DATO') return cpDias[key];
+  }
+  // fallback: buscar sin padding
+  for (const cp of cps) {
+    if (cpDias[cp] && cpDias[cp] !== 'SIN DATO') return cpDias[cp];
+  }
+  return 'SIN DATO';
+}
+
+// Crear marcadores guardando referencia
+Object.values(seen).forEach(m => {
+  const diaReal = getDiaPorCps(m.cps);
+  const marker = L.marker([m.lat, m.lon], { icon: makeIcon(m.zona, diaReal, modoVista) }).addTo(map);
+  todosMarkersData.push({ marker, data: { ...m, diaReal } });
+
+  marker.on('click', () => {
+    document.getElementById('ip-municipio').textContent = m.mun;
+    document.getElementById('ip-provincia').textContent = m.prov;
+    document.getElementById('ip-cp').textContent = m.cps.join(' / ');
+    document.getElementById('ip-dist').textContent = m.dist + ' km';
+    const zEl = document.getElementById('ip-zona');
+    zEl.textContent = 'ZONA ' + m.zona;
+    zEl.style.background = ZONAS[m.zona].color;
+    zEl.style.color = ['A','B','C'].includes(m.zona) ? '#111' : '#fff';
+    const precio = parseInt(ZONAS[m.zona].precio);
+    const iva = (precio * 0.21).toFixed(2);
+    const total = (precio * 1.21).toFixed(2);
+    document.getElementById('ip-base').textContent = precio + ' €';
+    document.getElementById('ip-iva').textContent = iva + ' €';
+    document.getElementById('ip-total').textContent = total + ' €';
+    const diaEl = document.getElementById('ip-dia');
+    const diaVal = diaReal;
+    diaEl.textContent = diaVal;
+    diaEl.style.background = getDiaColor(diaVal);
+    diaEl.style.color = diaVal === 'SIN DATO' ? '#aaa' : '#fff';
+    document.getElementById('info-panel').style.display = 'block';
+  });
+});
+
+// ---- Función de filtrado por día ----
+function filtrarDia(dia) {
+  filtroActivo = dia;
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  todosMarkersData.forEach(({marker, data}) => {
+    const diaM = (data.diaReal || 'SIN DATO').toUpperCase();
+    const mostrar = dia === 'TODOS' || diaM.includes(dia) || (dia === 'SIN DATO' && diaM === 'SIN DATO');
+    if (mostrar) {
+      if (!map.hasLayer(marker)) marker.addTo(map);
+    } else {
+      if (map.hasLayer(marker)) map.removeLayer(marker);
+    }
+  });
+}
+
+// Marcador especial Badajoz origen
+L.circleMarker(origen, {
+  radius: 10, color: '#fff', weight: 2,
+  fillColor: '#e94560', fillOpacity: 1
+}).addTo(map).bindTooltip('<b>📍 Badajoz – Origen</b><br>CP 06007', { permanent: false });
+
+// ============================================================
+// LEYENDA
+// ============================================================
+const legend = L.control({ position: 'topleft' });
+legend.onAdd = function() {
+  const div = L.DomUtil.create('div', 'legend');
+  div.innerHTML = `<h4>🗺 Zonas Tarifarias</h4>`;
+  Object.entries(ZONAS).forEach(([z, info]) => {
+    div.innerHTML += `
+      <div class="legend-row">
+        <div class="legend-dot" style="background:${info.color}"></div>
+        <span class="legend-text"><b>Zona ${z}</b> · ${info.label}</span>
+        <span class="legend-price">${info.total}</span>
+      </div>`;
+  });
+  div.innerHTML += `<div style="margin-top:8px;font-size:0.7rem;color:#666;border-top:1px solid rgba(255,255,255,0.1);padding-top:6px">Haz clic en un punto para ver detalles</div>`;
+  return div;
+};
+legend.addTo(map);
+
+// ============================================================
+// BARRA DE ESTADÍSTICAS
+// ============================================================
+const counts = {};
+Object.values(ZONAS).forEach((_, i) => { counts[Object.keys(ZONAS)[i]] = 0; });
+municipios.forEach(m => counts[m.zona]++);
+
+const diasCounts = {};
+municipios.forEach(m => {
+  const cp = (m.cp || '').replace(/\D/g,'').padStart(5,'0');
+  const d = (cpDias[cp] || m.dia || 'SIN DATO').toUpperCase();
+  const key = d.includes('LUNES') && d.includes('VIERNES') ? 'L-X-V / Varios' :
+              d.includes('MARTES') && d.includes('JUEVES') ? 'Ma-J / Varios' :
+              d.includes('LUNES') && !d.includes(',') ? 'LUNES' :
+              d.includes('MARTES') && !d.includes(',') ? 'MARTES' :
+              d.includes('MIERCOLES') && !d.includes(',') ? 'MIERCOLES' :
+              d.includes('JUEVES') && !d.includes(',') ? 'JUEVES' :
+              d.includes('VIERNES') && !d.includes(',') ? 'VIERNES' :
+              d === 'SIN DATO' ? 'SIN DATO' : 'VARIOS';
+  diasCounts[key] = (diasCounts[key] || 0) + 1;
+});
+
+const statsBar = document.getElementById('stats');
+Object.entries(ZONAS).forEach(([z, info]) => {
+  statsBar.innerHTML += `
+    <div class="stat-item">
+      <div class="s-zone" style="color:${info.color}">ZONA ${z}</div>
+      <div class="s-count">${counts[z]}</div>
+      <div class="s-price">${info.total} c/IVA</div>
+    </div>`;
+});
+// Separador
+statsBar.innerHTML += `<div class="stat-item" style="border-left:2px solid rgba(233,69,96,0.4);min-width:10px"></div>`;
+const diasOrder = ['LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','L-X-V / Varios','Ma-J / Varios','VARIOS','SIN DATO'];
+const diasColors = {'LUNES':'#00bcd4','MARTES':'#8bc34a','MIERCOLES':'#ff9800','JUEVES':'#9c27b0','VIERNES':'#f44336','L-X-V / Varios':'#00acc1','Ma-J / Varios':'#7b1fa2','VARIOS':'#607d8b','SIN DATO':'#444'};
+diasOrder.forEach(d => {
+  if (!diasCounts[d]) return;
+  statsBar.innerHTML += `
+    <div class="stat-item">
+      <div class="s-zone" style="color:${diasColors[d]||'#aaa'}">${d}</div>
+      <div class="s-count">${diasCounts[d]}</div>
+      <div class="s-price">CPs</div>
+    </div>`;
+});
+
+// ============================================================
+// BUSCADOR DE CP
+// ============================================================
+// Índice CP → {marker, data} construido tras crear todos los marcadores
+const cpMarkerIndex = {};
+todosMarkersData.forEach(({marker, data}) => {
+  data.cps.forEach(cp => {
+    const key = cp.replace(/\D/g,'').padStart(5,'0');
+    cpMarkerIndex[key] = { marker, data };
+  });
+});
+
+// Marcador de resaltado para búsqueda
+let searchHighlight = null;
+
+function buscarCP() {
+  const raw = document.getElementById('cp-input').value.trim();
+  const cp  = raw.replace(/\D/g,'').padStart(5,'0');
+  const msg = document.getElementById('cp-msg');
+
+  if (!raw || cp.replace(/^0+/,'') === '') {
+    msg.textContent = 'Escribe un CP';
+    msg.style.color = '#ff9800';
+    return;
+  }
+
+  // Limpiar resaltado anterior
+  if (searchHighlight) { map.removeLayer(searchHighlight); searchHighlight = null; }
+
+  const found = cpMarkerIndex[cp];
+
+  if (found) {
+    const { marker, data } = found;
+
+    // Si estaba filtrado, hacerlo visible temporalmente
+    if (!map.hasLayer(marker)) marker.addTo(map);
+
+    // Volar al municipio
+    map.flyTo([data.lat, data.lon], 13, { duration: 1.2 });
+
+    // Anillo de resaltado animado
+    searchHighlight = L.circleMarker([data.lat, data.lon], {
+      radius: 18, color: '#fff', weight: 2.5,
+      fillColor: ZONAS[data.zona].color, fillOpacity: 0.25,
+      className: 'search-pulse'
+    }).addTo(map);
+
+    // Rellenar panel info
+    const diaVal = data.diaReal || 'SIN DATO';
+    document.getElementById('ip-municipio').textContent = data.mun;
+    document.getElementById('ip-provincia').textContent = data.prov;
+    document.getElementById('ip-cp').textContent        = data.cps.join(' / ');
+    document.getElementById('ip-dist').textContent      = data.dist + ' km';
+    const zEl = document.getElementById('ip-zona');
+    zEl.textContent   = 'ZONA ' + data.zona;
+    zEl.style.background = ZONAS[data.zona].color;
+    zEl.style.color   = ['A','B','C'].includes(data.zona) ? '#111' : '#fff';
+    const precio = parseInt(ZONAS[data.zona].precio);
+    document.getElementById('ip-base').textContent  = precio + ' €';
+    document.getElementById('ip-iva').textContent   = (precio * 0.21).toFixed(2) + ' €';
+    document.getElementById('ip-total').textContent = (precio * 1.21).toFixed(2) + ' €';
+    const diaEl = document.getElementById('ip-dia');
+    diaEl.textContent       = diaVal;
+    diaEl.style.background  = getDiaColor(diaVal);
+    diaEl.style.color       = diaVal === 'SIN DATO' ? '#aaa' : '#fff';
+    document.getElementById('info-panel').style.display = 'block';
+
+    msg.textContent = '✓ ' + data.mun;
+    msg.style.color = '#00e676';
+
+  } else if (cpDias[cp]) {
+    // CP en la base de días pero sin punto en el mapa (sin coordenadas)
+    msg.textContent = 'Sin ubicación en mapa';
+    msg.style.color = '#ff9800';
+
+    // Mostrar panel con datos parciales
+    document.getElementById('ip-municipio').textContent = 'CP ' + cp;
+    document.getElementById('ip-provincia').textContent = cp.startsWith('06') ? 'Badajoz' : 'Cáceres';
+    document.getElementById('ip-cp').textContent        = cp;
+    document.getElementById('ip-dist').textContent      = '—';
+    const zEl = document.getElementById('ip-zona');
+    zEl.textContent = '—'; zEl.style.background = '#333'; zEl.style.color = '#aaa';
+    document.getElementById('ip-base').textContent  = '—';
+    document.getElementById('ip-iva').textContent   = '—';
+    document.getElementById('ip-total').textContent = '—';
+    const diaEl = document.getElementById('ip-dia');
+    diaEl.textContent      = cpDias[cp];
+    diaEl.style.background = getDiaColor(cpDias[cp]);
+    diaEl.style.color      = '#fff';
+    document.getElementById('info-panel').style.display = 'block';
+
+  } else {
+    msg.textContent = 'CP no encontrado';
+    msg.style.color = '#e94560';
+    document.getElementById('info-panel').style.display = 'none';
+  }
+}
+</script>
+</body>
+</html>

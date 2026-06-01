@@ -1,0 +1,315 @@
+Provincia;Municipio;C√≥digo Postal;Distancia Estimada (km);Zona Asignada;Tarifa Base (‚Ç¨);IVA 21% (‚Ç¨);Tarifa Total con IVA (‚Ç¨)
+Badajoz;Badajoz;6001;0;A;25;5,25;30,25
+Badajoz;Badajoz;6002;0;A;25;5,25;30,25
+Badajoz;Badajoz;6003;0;A;25;5,25;30,25
+Badajoz;Badajoz;6004;0;A;25;5,25;30,25
+Badajoz;Badajoz;6005;0;A;25;5,25;30,25
+Badajoz;Badajoz;6006;0;A;25;5,25;30,25
+Badajoz;Badajoz;6007;0;A;25;5,25;30,25
+Badajoz;Badajoz;6008;0;A;25;5,25;30,25
+Badajoz;Badajoz;6009;0;A;25;5,25;30,25
+Badajoz;Badajoz;6010;0;A;25;5,25;30,25
+Badajoz;Badajoz;6011;0;A;25;5,25;30,25
+Badajoz;Valverde de Legan√©s;6110;10;A;25;5,25;30,25
+Badajoz;La Albuera;6107;15;A;25;5,25;30,25
+Badajoz;Puebla de Obando;6139;21;A;25;5,25;30,25
+Badajoz;Talavera la Real;6150;19;A;25;5,25;30,25
+Badajoz;Olivenza;6100;24;A;25;5,25;30,25
+Badajoz;Entr√≠n Bajo;6109;22;A;25;5,25;30,25
+Badajoz;Valdelacalzada;6195;18;A;25;5,25;30,25
+Badajoz;Novelda del Guadiana;6196;23;A;25;5,25;30,25
+Badajoz;San Francisco de Olivenza;6108;20;A;25;5,25;30,25
+Badajoz;Villar del Rey;6132;29;B;28;5,88;33,88
+Badajoz;La Roca de la Sierra;6133;34;B;28;5,88;33,88
+Badajoz;Alburquerque;6510;37;B;28;5,88;33,88
+Badajoz;La Codosera;6131;44;B;28;5,88;33,88
+Badajoz;Montijo;6480;31;B;28;5,88;33,88
+Badajoz;Pueblonuevo del Guadiana;6481;33;B;28;5,88;33,88
+Badajoz;Lob√≥n;6450;33;B;28;5,88;33,88
+Badajoz;Barcarrota;6160;41;B;28;5,88;33,88
+Badajoz;Alconchel;6111;43;B;28;5,88;33,88
+Badajoz;Salvale√≥n;6174;42;B;28;5,88;33,88
+Badajoz;Salvatierra de los Barros;6175;45;B;28;5,88;33,88
+Badajoz;Nogales;6176;44;B;28;5,88;33,88
+Badajoz;Cordobilla de L√°cara;6179;38;B;28;5,88;33,88
+Badajoz;Don √Ålvaro;6178;44;B;28;5,88;33,88
+Badajoz;La Nava de Santiago;6183;41;B;28;5,88;33,88
+Badajoz;Mirandilla;6180;47;B;28;5,88;33,88
+Badajoz;Trujillanos;6184;48;B;28;5,88;33,88
+Badajoz;Esparragalejo;6185;46;B;28;5,88;33,88
+Badajoz;Torremayor;6186;45;B;28;5,88;33,88
+Badajoz;Solana de los Barros;6172;46;B;28;5,88;33,88
+Badajoz;Torre de Miguel Sesmero;6173;49;B;28;5,88;33,88
+Badajoz;M√©rida;6800;55;C;31;6,51;37,51
+Badajoz;M√©rida;6801;55;C;31;6,51;37,51
+Badajoz;M√©rida;6802;55;C;31;6,51;37,51
+Badajoz;Almendralejo;6200;53;C;31;6,51;37,51
+Badajoz;Almendralejo;6201;53;C;31;6,51;37,51
+Badajoz;Aceuchal;6202;57;C;31;6,51;37,51
+Badajoz;Torremej√≠a;6170;52;C;31;6,51;37,51
+Badajoz;Zarza de Alange;6171;53;C;31;6,51;37,51
+Badajoz;Villafranca de los Barros;6220;61;C;31;6,51;37,51
+Badajoz;Fuente del Maestre;6217;68;C;31;6,51;37,51
+Badajoz;Zafra;6300;70;C;31;6,51;37,51
+Badajoz;Zafra;6301;70;C;31;6,51;37,51
+Badajoz;Los Santos de Maimona;6230;67;C;31;6,51;37,51
+Badajoz;La Parra;6231;68;C;31;6,51;37,51
+Badajoz;Feria;6232;72;C;31;6,51;37,51
+Badajoz;Ribera del Fresno;6312;72;C;31;6,51;37,51
+Badajoz;Jerez de los Caballeros;6380;63;C;31;6,51;37,51
+Badajoz;Jerez de los Caballeros;6381;63;C;31;6,51;37,51
+Badajoz;T√°liga;6120;63;C;31;6,51;37,51
+Badajoz;Higuera de Vargas;6114;51;C;31;6,51;37,51
+Badajoz;Zah√≠nos;6113;54;C;31;6,51;37,51
+Badajoz;Cheles;6112;53;C;31;6,51;37,51
+Badajoz;Villanueva del Fresno;6115;68;C;31;6,51;37,51
+Badajoz;Oliva de la Frontera;6119;72;C;31;6,51;37,51
+Badajoz;San Vicente de Alc√°ntara;6500;62;C;31;6,51;37,51
+Badajoz;Alange;6210;56;C;31;6,51;37,51
+Badajoz;Calamonte;6144;51;C;31;6,51;37,51
+Badajoz;Arroyo de San Serv√°n;6181;51;C;31;6,51;37,51
+Badajoz;Aljuc√©n;6183;55;C;31;6,51;37,51
+Badajoz;Almendral;6130;61;C;31;6,51;37,51
+Badajoz;Hinojosa del Valle;6208;63;C;31;6,51;37,51
+Badajoz;Hornachos;6210;74;C;31;6,51;37,51
+Badajoz;Villalba de los Barros;6221;62;C;31;6,51;37,51
+Badajoz;Palomas;6196;69;C;31;6,51;37,51
+Badajoz;Puebla de la Reina;6194;66;C;31;6,51;37,51
+Badajoz;Alconera;6310;68;C;31;6,51;37,51
+Badajoz;Puebla del Prior;6310;69;C;31;6,51;37,51
+Badajoz;La Morera;6311;73;C;31;6,51;37,51
+Badajoz;Santa Marta de los Barros;6233;68;C;31;6,51;37,51
+Badajoz;Guare√±a;6470;76;D;34;7,14;41,14
+Badajoz;Villagonzalo;6471;77;D;34;7,14;41,14
+Badajoz;Manchita;6192;79;D;34;7,14;41,14
+Badajoz;Cristina;6193;80;D;34;7,14;41,14
+Badajoz;Valdetorres;6191;81;D;34;7,14;41,14
+Badajoz;Don Benito;6400;96;D;34;7,14;41,14
+Badajoz;Don Benito;6401;96;D;34;7,14;41,14
+Badajoz;Villanueva de la Serena;6700;102;D;34;7,14;41,14
+Badajoz;Villanueva de la Serena;6701;102;D;34;7,14;41,14
+Badajoz;Medell√≠n;6411;90;D;34;7,14;41,14
+Badajoz;Magacela;6412;95;D;34;7,14;41,14
+Badajoz;La Coronada;6870;96;D;34;7,14;41,14
+Badajoz;Campanario;6770;95;D;34;7,14;41,14
+Badajoz;Quintana de la Serena;6870;99;D;34;7,14;41,14
+Badajoz;Valle de la Serena;6750;91;D;34;7,14;41,14
+Badajoz;Orellana la Vieja;6740;106;D;34;7,14;41,14
+Badajoz;Orellana de la Sierra;6742;110;D;34;7,14;41,14
+Badajoz;Navalvillar de Pela;6760;110;D;34;7,14;41,14
+Badajoz;Talarrubias;6761;113;D;34;7,14;41,14
+Badajoz;Herrera del Duque;6680;118;D;34;7,14;41,14
+Badajoz;Fuenlabrada de los Montes;6670;115;D;34;7,14;41,14
+Badajoz;Llerena;6900;108;D;34;7,14;41,14
+Badajoz;Usagre;6907;100;D;34;7,14;41,14
+Badajoz;Llera;6908;103;D;34;7,14;41,14
+Badajoz;Campillo de Llerena;6909;105;D;34;7,14;41,14
+Badajoz;Berlanga;6930;116;D;34;7,14;41,14
+Badajoz;Valverde de Llerena;6227;97;D;34;7,14;41,14
+Badajoz;Maguilla;6228;97;D;34;7,14;41,14
+Badajoz;Casas de Reina;6226;100;D;34;7,14;41,14
+Badajoz;Granja de Torrehermosa;6225;106;D;34;7,14;41,14
+Badajoz;Fuente de Cantos;6240;93;D;34;7,14;41,14
+Badajoz;Montemol√≠n;6294;88;D;34;7,14;41,14
+Badajoz;Calera de Le√≥n;6245;95;D;34;7,14;41,14
+Badajoz;Monesterio;6260;98;D;34;7,14;41,14
+Badajoz;Fuentes de Le√≥n;6270;100;D;34;7,14;41,14
+Badajoz;Bodonal de la Sierra;6246;87;D;34;7,14;41,14
+Badajoz;Segura de Le√≥n;6247;100;D;34;7,14;41,14
+Badajoz;Higuera la Real;6292;79;D;34;7,14;41,14
+Badajoz;Burguillos del Cerro;6293;78;D;34;7,14;41,14
+Badajoz;Valencia del Ventoso;6295;83;D;34;7,14;41,14
+Badajoz;Fregenal de la Sierra;6340;83;D;34;7,14;41,14
+Badajoz;Valverde de Burguillos;6291;79;D;34;7,14;41,14
+Badajoz;Ahillones;6910;112;D;34;7,14;41,14
+Badajoz;Trasierra;6911;113;D;34;7,14;41,14
+Badajoz;Peraleda del Zaucejo;6912;115;D;34;7,14;41,14
+Badajoz;Malcocinado;6919;115;D;34;7,14;41,14
+Badajoz;Acedera;6479;103;D;34;7,14;41,14
+Badajoz;Esparragosa de Lares;6490;111;D;34;7,14;41,14
+Badajoz;Castuera;6420;125;E;37;7,77;44,77
+Badajoz;Castuera;6421;125;E;37;7,77;44,77
+Badajoz;Benquerencia de la Serena;6892;118;D;34;7,14;41,14
+Badajoz;Higuera de la Serena;6893;115;D;34;7,14;41,14
+Badajoz;Esparragosa de la Serena;6891;117;D;34;7,14;41,14
+Badajoz;Monterrubio de la Serena;6720;117;D;34;7,14;41,14
+Badajoz;Zalamea de la Serena;6730;125;E;37;7,77;44,77
+Badajoz;La Haba;6480;103;D;34;7,14;41,14
+Badajoz;Cabeza del Buey;6460;151;E;37;7,77;44,77
+Badajoz;Capilla;6649;128;E;37;7,77;44,77
+Badajoz;Zarza-Capilla;6649;130;E;37;7,77;44,77
+Badajoz;Siruela;6648;125;E;37;7,77;44,77
+Badajoz;Garlitos;6648;132;E;37;7,77;44,77
+Badajoz;Pe√±alsordo;6648;130;E;37;7,77;44,77
+Badajoz;Tamurejo;6650;120;E;37;7,77;44,77
+Badajoz;Puebla de Alcocer;6691;120;D;34;7,14;41,14
+Badajoz;Azuaga;6920;131;E;37;7,77;44,77
+Badajoz;Reina;6940;121;E;37;7,77;44,77
+Badajoz;Fuente del Arco;6940;122;E;37;7,77;44,77
+Badajoz;Valencia de las Torres;6906;110;D;34;7,14;41,14
+Badajoz;Valencia del Mombuey;6108;75;D;34;7,14;41,14
+Badajoz;Valle de Matamoros;6118;79;D;34;7,14;41,14
+Badajoz;Valle de Santa Ana;6117;77;D;34;7,14;41,14
+Caceres;Caceres;10001;84;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Caceres;10002;84;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Caceres;10003;84;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Caceres;10004;84;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Caceres;10005;84;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Aliseda;10194;72;C;31,00 Ä;6,51 Ä;37,51 Ä
+Caceres;Arroyo de la Luz;10900;82;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Casar de C√°ceres;10190;84;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Malpartida de C√°ceres;10910;87;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Sierra de Fuentes;10160;82;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Torreorgaz;10161;86;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Mont√°nchez;10170;95;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Zarza de Mont√°nchez;10171;98;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Arroyomolinos;10189;88;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Alcu√©scar;10163;88;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Aldea del Cano;10190;82;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Casas de Don Antonio;10164;88;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Alc√°ntara;10980;94;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Brozas;10950;82;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Mata de Alc√°ntara;10982;88;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Santiago de Alc√°ntara;10990;80;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Membr√≠o;10940;86;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Valencia de Alc√°ntara;10500;64;C;31,00 Ä;6,51 Ä;37,51 Ä
+Caceres;San Vicente de Alc√°ntara (C√°ceres);10501;68;C;31,00 Ä;6,51 Ä;37,51 Ä
+Caceres;Herreruela;10510;67;C;31,00 Ä;6,51 Ä;37,51 Ä
+Caceres;Salorino;10511;67;C;31,00 Ä;6,51 Ä;37,51 Ä
+Caceres;Santiago de Alc√°ntara;10513;75;C;31,00 Ä;6,51 Ä;37,51 Ä
+Caceres;Cedillo;10514;80;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Trujillo;10200;114;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Trujillo;10201;114;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Madrigalejo;10359;116;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Zorita;10130;113;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Logros√°n;10120;121;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Garciaz;10121;115;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Guadalupe;10140;156;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Ca√±amero;10136;139;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Berzocana;10130;128;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Miajadas;10100;103;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Escurial;10101;100;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Abertura;10108;103;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Conquista de la Sierra;10109;110;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Navas del Madro√±o;10960;85;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Garrovillas de Alcon√©tar;10940;96;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Coria;10800;128;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Coria;10801;128;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Portaje;10812;131;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Guijo de Coria;10810;129;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Torrejoncillo;10820;121;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Morcillo;10821;120;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Calzadilla;10821;125;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Montehermoso;10810;126;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Moraleja;10840;135;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Cilleros;10850;139;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Hoyos;10860;137;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Perales del Puerto;10861;140;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;San Mart√≠n de Trevejo;10892;146;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Valverde del Fresno;10896;142;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Acebo;10891;143;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Robledillo de Gata;10867;141;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Descargamar√≠a;10868;142;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Santib√°√±ez el Alto;10880;143;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Zarza la Mayor;10930;110;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Alcobaza;10850;140;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Plasencia;10600;148;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Plasencia;10601;148;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Carcaboso;10610;143;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Oliva de Plasencia;10612;141;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Galisteo;10614;140;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Aldehuela del Jerte;10614;141;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Casas de Mill√°n;10614;140;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Malpartida de Plasencia;10680;150;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Mirabel;10689;148;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Serrej√≥n;10392;128;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Millanes;10392;126;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Casas de Mill√°n;10614;140;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Holguera;10620;135;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Torrej√≥n el Rubio;10694;147;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Saucedilla;10395;139;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Navalmoral de la Mata;10300;167;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Navalmoral de la Mata;10301;167;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Talayuela;10393;163;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Casatejada;10392;155;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Bohonal de Ibor;10394;150;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Berrocalejo;10396;158;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Carrascalejo;10397;155;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Valdeca√±as de Tajo;10394;152;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Peraleda de la Mata;10392;158;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Talavera la Real (C√°ceres);10395;148;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Almaraz;10360;148;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Saucedilla;10361;143;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Toril;10362;141;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Mesas de Ibor;10394;150;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Villanueva de la Vera;10490;178;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Jara√≠z de la Vera;10400;168;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Jarandilla de la Vera;10450;179;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Cuacos de Yuste;10430;172;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Garganta la Olla;10440;174;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Pasar√≥n de la Vera;10460;171;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Tejeda de Ti√©tar;10420;165;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Aldeanueva de la Vera;10480;178;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Losar de la Vera;10470;175;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Robledillo de la Vera;10460;172;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Talaveruela de la Vera;10481;176;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Viandar de la Vera;10482;177;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Madrigal de la Vera;10484;181;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Piornal;10620;167;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Casas del Casta√±ar;10611;164;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Tornavacas;10630;187;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Jerte;10614;172;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Cabezuela del Valle;10610;164;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Valdastillas;10614;166;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Navaconcejo;10613;161;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Herv√°s;10700;167;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Ba√±os de Montemayor;10710;165;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Casas del Monte;10720;164;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Aldeanueva del Camino;10730;158;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;La Garganta;10740;165;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Zarza de Granadilla;10750;150;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Abad√≠a;10750;143;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Granadilla;10750;144;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Segura de Toro;10750;151;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Villanueva de la Sierra;10760;155;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Pinofranqueado;10750;173;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Casar de Palomero;10731;162;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Ladrillar;10750;165;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Nu√±omoral;10750;171;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Caminomorisco;10750;168;F;40,00 Ä;8,40 Ä;48,40 Ä
+Caceres;Vegas de Coria;10810;131;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Riolobos;10820;135;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Portezuelo;10820;127;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Cachorrilla;10821;128;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Pescueza;10823;130;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Torrecilla de la Tiesa;10692;135;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Aldeacentenera;10693;122;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Herguijuela;10695;118;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Ibahernando;10696;109;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Ruanes;10160;92;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Torrecillas de la Tiesa;10161;100;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Plasenzuela;10163;103;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Valdefuentes;10163;97;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Alia;10137;142;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Castilblanco;10138;155;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Fuenlabrada de los Montes (C√°ceres);10139;118;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Navalvillar de Ibor;10139;140;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Caba√±as del Castillo;10139;133;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Roturas;10140;155;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Navatrasierra;10137;148;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Deleitosa;10130;130;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Robledollano;10130;132;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Campillo de Deleitosa;10130;131;E;37,00 Ä;7,77 Ä;44,77 Ä
+Caceres;Retamosa;10163;95;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Salvatierra de Santiago;10170;97;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Santiago del Campo;10190;96;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Torreorgaz;10161;86;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Torrequemada;10161;88;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Botija;10171;97;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Almohar√≠n;10164;95;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Benquerencia (C√°ceres);10132;113;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Abertura;10108;103;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Acedera (C√°ceres);10108;105;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Madro√±era;10100;108;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Puerto de Santa Cruz;10109;110;D;34,00 Ä;7,14 Ä;41,14 Ä
+Caceres;Romangordo;10394;156;E;37,00 Ä;7,77 Ä;44,77 Ä

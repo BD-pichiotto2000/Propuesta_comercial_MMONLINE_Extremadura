@@ -1,0 +1,524 @@
+Provincia;Municipio;Codigo Postal;Distancia (km);Zona;Tarifa Base (EUR);IVA 21% (EUR);Tarifa Total (EUR);Dia Reparto ;
+Badajoz;Badajoz;6001;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6002;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6003;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6004;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6005;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6006;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6007;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6008;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6009;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6010;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Badajoz;6011;0;A;25,00 �;5,25 �;30,25 �;LUNES A VIERNES;
+Badajoz;Villanueva del Fresno;6110;10;A;25,00 �;5,25 �;30,25 �;MIERCOLES;
+Badajoz;La Albuera;6107;15;A;25,00 �;5,25 �;30,25 �;LUNES, MIERCOLES, VIERNES;
+Badajoz;Puebla de Obando;6139;21;A;25,00 �;5,25 �;30,25 �;LUNES Y VIERNES;
+Badajoz;Talavera la Real;6150;19;A;25,00 �;5,25 �;30,25 �;MIERCOLES;
+Badajoz;Olivenza;6100;24;A;25,00 �;5,25 �;30,25 �;LUNES, MIERCOLES, VIERNES;
+Badajoz;Entrín Bajo;6109;22;A;25,00 �;5,25 �;30,25 �;LUNES, MIERCOLES, VIERNES;
+Badajoz;Badajoz;6195;18;A;25,00 �;5,25 �;30,25 �;LUNES, MARTES Y JUEVES;
+Badajoz;Higuera de Vargas;6132;29;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Táliga;6133;34;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Alburquerque;6510;37;B;28,00 �;5,88 �;33,88 �;LUNES;
+Badajoz;Alconchel;6131;44;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Montijo;6480;31;B;28,00 �;5,88 �;33,88 �;MARTES Y JUEVES;
+Badajoz;Pueblonuevo del Guadiana;6481;33;B;28,00 �;5,88 �;33,88 �;MARTES Y JUEVES;
+Badajoz;Quintana de la Serena;6450;33;B;28,00 �;5,88 �;33,88 �;JUEVES;
+Badajoz;Barcarrota;6160;41;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Alconchel;6111;43;B;28,00 �;5,88 �;33,88 �;MIERCOLES Y VIERNES;
+Badajoz;Salvaleón;6174;42;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Salvatierra de los Barros;6175;45;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;La Morera;6176;44;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Cordobilla de Lácara;6179;38;B;28,00 �;5,88 �;33,88 �;MARTES Y JUEVES;
+Badajoz;Valle de Santa Ana;6178;44;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Badajoz;6183;41;B;28,00 �;5,88 �;33,88 �;LUNES, MARTES Y JUEVES;
+Badajoz;Badajoz;6180;47;B;28,00 �;5,88 �;33,88 �;LUNES, MARTES Y JUEVES;
+Badajoz;Badajoz;6184;48;B;28,00 �;5,88 �;33,88 �;MARTES Y JUEVES;
+Badajoz;Esparragalejo;6185;46;B;28,00 �;5,88 �;33,88 �;MARTES Y JUEVES;
+Badajoz;Torremayor;6186;45;B;28,00 �;5,88 �;33,88 �;MARTES Y JUEVES;
+Badajoz;Solana de los Barros;6172;46;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Torre de Miguel Sesmero;6173;49;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Mérida;6800;55;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Mérida;6801;55;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Mérida;6802;55;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Almendralejo;6200;53;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Almendralejo;6201;53;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Aceuchal;6202;57;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Badajoz;6170;52;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Villafranca de los Barros;6220;61;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Fuente del Maestre;6217;68;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Zafra;6300;70;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Zafra;6301;70;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Los Santos de Maimona;6230;67;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;La Parra;6231;68;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Feria;6232;72;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Ribera del Fresno;6312;72;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Jerez de los Caballeros;6380;63;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Jerez de los Caballeros;6381;63;C;31,00 �;6,51 �;37,51 �;MIERCOLES Y VIERNES;
+Badajoz;Oliva de la Frontera;6120;63;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Higuera de Vargas;6114;51;C;31,00 �;6,51 �;37,51 �;MIERCOLES Y VIERNES;
+Badajoz;Zahínos;6113;54;C;31,00 �;6,51 �;37,51 �;MIERCOLES Y VIERNES;
+Badajoz;Cheles;6112;53;C;31,00 �;6,51 �;37,51 �;MIERCOLES Y VIERNES;
+Badajoz;Villanueva del Fresno;6115;68;C;31,00 �;6,51 �;37,51 �;MIERCOLES Y VIERNES;
+Badajoz;Oliva de la Frontera;6119;72;C;31,00 �;6,51 �;37,51 �;MIERCOLES Y VIERNES;
+Badajoz;San Vicente de Alcántara;6500;62;C;31,00 �;6,51 �;37,51 �;LUNES;
+Badajoz;Torremejía;6210;56;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Calamonte;6144;51;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Badajoz;6181;51;C;31,00 �;6,51 �;37,51 �;LUNES, MARTES Y JUEVES;
+Badajoz;Badajoz;6183;55;C;31,00 �;6,51 �;37,51 �;LUNES, MARTES Y JUEVES;
+Badajoz;Valverde de Leganés;6130;61;C;31,00 �;6,51 �;37,51 �;LUNES, MIERCOLES, VIERNES;
+Badajoz;Villalba de los Barros;6208;63;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Torremejía;6210;74;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Villalba de los Barros;6221;62;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Palomas;6196;69;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Badajoz;6194;66;C;31,00 �;6,51 �;37,51 �;LUNES, JUEVES Y VIERNES;
+Badajoz;Puebla de Sancho Pérez;6310;68;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Puebla de Sancho Pérez;6310;69;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;La Morera;6311;73;C;31,00 �;6,51 �;37,51 �;MARTES Y JUEVES;
+Badajoz;Guareña;6470;76;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Villagonzalo;6471;77;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Badajoz;Manchita;6192;79;D;34,00 �;7,14 �;41,14 �;LUNES;
+Badajoz;Badajoz;6193;80;D;34,00 �;7,14 �;41,14 �;LUNES, JUEVES Y VIERNES;
+Badajoz;Puebla de Obando;6191;81;D;34,00 �;7,14 �;41,14 �;LUNES, VIERNES;
+Badajoz;Don Benito;6400;96;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Don Benito;6401;96;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Badajoz;Villanueva de la Serena;6700;102;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Villanueva de la Serena;6701;102;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Badajoz;Medellín;6411;90;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Don Benito;6412;95;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;La Garrovilla;6870;96;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Casas de Don Pedro;6770;95;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;La Garrovilla;6870;99;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Orellana de la Sierra;6750;91;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Orellana la Vieja;6740;106;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Orellana de la Sierra;6742;110;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Badajoz;Navalvillar de Pela;6760;110;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Talarrubias;6761;113;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Castilblanco;6680;118;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Herrera del Duque;6670;115;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Llerena;6900;108;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Usagre;6907;100;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Montemolín;6908;103;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Trasierra;6909;105;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Berlanga;6930;116;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Llera;6227;97;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Hornachos;6228;97;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Hinojosa del Valle;6226;100;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Ribera del Fresno;6225;106;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Fuente de Cantos;6240;93;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Montemolín;6294;88;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Calera de León;6245;95;D;34,00 �;7,14 �;41,14 �;MIERCOLES Y VIERNES;
+Badajoz;Monesterio;6260;98;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Segura de León;6270;100;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Bodonal de la Sierra;6246;87;D;34,00 �;7,14 �;41,14 �;MIERCOLES Y VIERNES;
+Badajoz;Segura de León;6247;100;D;34,00 �;7,14 �;41,14 �;MIERCOLES Y VIERNES;
+Badajoz;Calera de León;6292;79;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Cabeza la Vaca;6293;78;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Valencia del Ventoso;6295;83;D;34,00 �;7,14 �;41,14 �;MIERCOLES Y VIERNES;
+Badajoz;Fregenal de la Sierra;6340;83;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Montemolín;6291;79;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Granja de Torrehermosa;6910;112;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Trasierra;6911;113;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Peraleda del Zaucejo;6912;115;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Peraleda del Zaucejo;6919;115;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Cristina;6479;103;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Esparragosa de Lares;6490;111;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Badajoz;Castuera;6420;125;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Castuera;6421;125;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Trujillanos;6892;118;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;San Pedro de Mérida;6893;115;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Mirandilla;6891;117;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Villanueva de la Serena;6720;117;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Acedera;6730;125;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;La Haba;6480;103;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Badajoz;Campanario;6460;151;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Capilla;6649;128;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Zarza-Capilla;6649;130;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Siruela;6648;125;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Garlitos;6648;132;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Peñalsordo;6648;130;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Siruela;6650;120;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Puebla de Alcocer;6691;120;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Azuaga;6920;131;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Ahillones;6940;121;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Ahillones;6940;122;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Puebla del Maestre;6906;110;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Valencia del Mombuey;6108;75;D;34,00 �;7,14 �;41,14 �;LUNES, MIERCOLES, VIERNES;
+Badajoz;Valle de Matamoros;6118;79;D;34,00 �;7,14 �;41,14 �;MIERCOLES Y VIERNES;
+Badajoz;Valle de Santa Ana;6117;77;D;34,00 �;7,14 �;41,14 �;MIERCOLES Y VIERNES;
+Caceres;Cáceres;10001;84;D;34,00 �;7,14 �;41,14 �;LUNES A VIERNES;
+Caceres;Cáceres;10002;84;D;34,00 �;7,14 �;41,14 �;LUNES A VIERNES;
+Caceres;Cáceres;10003;84;D;34,00 �;7,14 �;41,14 �;LUNES A VIERNES;
+Caceres;Cáceres;10004;84;D;34,00 �;7,14 �;41,14 �;LUNES A VIERNES;
+Caceres;Cáceres;10005;84;D;34,00 �;7,14 �;41,14 �;LUNES A VIERNES;
+Caceres;Aliseda;10194;72;C;31,00 �;6,51 �;37,51 �;LUNES;
+Caceres;Arroyo de la Luz;10900;82;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Casar de Cáceres;10190;84;D;34,00 �;7,14 �;41,14 �;LUNES, VIERNES;
+Caceres;Malpartida de Cáceres;10910;87;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Alcuéscar;10160;82;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Torreorgaz;10161;86;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Montánchez;10170;95;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Zarza de Montánchez;10171;98;D;34,00 �;7,14 �;41,14 �;MARTES Y VIERNES;
+Caceres;Zarza de Montánchez;10189;88;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Alcuéscar;10163;88;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Casar de Cáceres;10190;82;D;34,00 �;7,14 �;41,14 �;LUNES, VIERNES;
+Caceres;Alcántara;10980;94;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Brozas;10950;82;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Mata de Alcántara;10982;88;D;34,00 �;7,14 �;41,14 �;LUNES Y VIERNES;
+Caceres;Alcántara;10990;80;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Garrovillas de Alconétar;10940;86;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Valencia de Alcántara;10500;64;C;31,00 �;6,51 �;37,51 �;LUNES Y VIERNES;
+Caceres;Santiago de Alcántara;10510;67;C;31,00 �;6,51 �;37,51 �;LUNES;
+Caceres;Carbajo;10511;67;C;31,00 �;6,51 �;37,51 �;LUNES;
+Caceres;Cedillo;10513;93;D;33,00;6,93;39,93;LUNES
+Caceres;Valencia de Alcántara;10514;80;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Trujillo;10200;114;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Trujillo;10201;114;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Caceres;Madrigalejo;10359;116;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Zorita;10130;113;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Caceres;Logrosán;10120;121;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Garciaz;10121;115;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Caceres;Guadalupe;10140;156;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Cañamero;10136;139;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Zorita;10130;128;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Miajadas;10100;103;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Caceres;Escurial;10101;100;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Caceres;Abertura;10108;103;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Caceres;Miajadas;10109;110;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Caceres;Villa del Rey;10960;85;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Garrovillas de Alconétar;10940;96;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Coria;10800;128;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Coria;10801;128;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Montehermoso;10810;129;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Torrejoncillo;10820;121;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Morcillo;10821;120;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Calzadilla;10821;125;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Montehermoso;10810;126;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Moraleja;10840;135;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Hoyos;10850;139;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Gata;10860;137;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Perales del Puerto;10861;140;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Perales del Puerto;10896;142;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Eljas;10891;143;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Robledillo de Gata;10867;141;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Hernán-Pérez;10868;142;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Zarza la Mayor;10880;143;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Zarza la Mayor;10930;110;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Hoyos;10850;140;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Plasencia;10600;148;E;37,00 �;7,77 �;44,77 �;LUNES (L-V);
+Caceres;Plasencia;10601;148;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Cabezuela del Valle;10610;143;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Jerte;10612;141;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Valdastillas;10614;140;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Valdastillas;10614;141;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Valdastillas;10614;140;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Malpartida de Plasencia;10680;150;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Mirabel;10689;148;E;37,00 �;7,77 �;44,77 �;LUNES Y VIERNES;
+Caceres;Berrocalejo;10392;128;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Berrocalejo;10392;126;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Valdastillas;10614;140;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Caminomorisco;10620;135;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Torrejón el Rubio;10694;147;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Saucedilla;10395;139;E;37,00 �;7,77 �;44,77 �;MARTES Y VIERNES;
+Caceres;Navalmoral de la Mata;10300;167;F;40,00 �;8,40 �;48,40 �;POSTVENTA 601;
+Caceres;Navalmoral de la Mata;10301;167;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Valdehúncar;10393;163;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Berrocalejo;10392;155;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Belvís de Monroy;10394;150;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Almaraz;10396;158;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Carrascalejo;10397;155;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Belvís de Monroy;10394;152;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Berrocalejo;10392;158;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Casas de Miravete;10360;148;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Saucedilla;10361;143;E;37,00 �;7,77 �;44,77 �;MIERCOLES Y VIERNES;
+Caceres;Toril;10362;141;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Belvís de Monroy;10394;150;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Caceres;Valverde de la Vera;10490;178;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Jaraíz de la Vera;10400;168;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Jarandilla de la Vera;10450;179;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Cuacos de Yuste;10430;172;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Aldeanueva de la Vera;10440;174;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Losar de la Vera;10460;171;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Tejeda de Tiétar;10420;165;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Madrigal de la Vera;10480;178;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Villanueva de la Vera;10470;175;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Losar de la Vera;10460;172;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Talaveruela de la Vera;10481;176;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Viandar de la Vera;10482;177;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Madrigal de la Vera;10484;181;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Caminomorisco;10620;167;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Tornavacas;10611;164;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Caminomorisco;10630;187;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Valdastillas;10614;172;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Cabezuela del Valle;10610;164;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Valdastillas;10614;166;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Navaconcejo;10613;161;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Hervás;10700;167;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Zarza de Granadilla;10710;165;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Villar de Plasencia;10720;164;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Casas del Monte;10730;158;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Aldeanueva del Camino;10740;165;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Baños de Montemayor;10750;165;F;40,00;8,40;48,40;LUNES
+Caceres;Casar de Palomero;10731;162;F;40,00 �;8,40 �;48,40 �;SIN DATO;
+Caceres;Montehermoso;10810;131;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Riolobos;10820;135;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Portezuelo;10820;127;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Cachorrilla;10821;128;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Pescueza;10823;130;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Guijo de Galisteo;10692;135;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Riolobos;10693;122;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Serradilla;10695;118;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Barrado;10696;109;D;34,00 �;7,14 �;41,14 �;MIERCOLES Y VIERNES;
+Caceres;Alcuéscar;10160;92;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Torrecillas de la Tiesa;10161;100;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Plasenzuela;10163;103;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Valdefuentes;10163;97;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Alía;10137;142;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Guadalupe;10140;155;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Alía;10137;148;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Zorita;10130;130;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Zorita;10130;132;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Zorita;10130;131;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Montánchez;10170;97;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Casar de Cáceres;10190;96;D;34,00 �;7,14 �;41,14 �;LUNES, VIERNES;
+Caceres;Torreorgaz;10161;86;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Torrequemada;10161;88;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Botija;10171;97;D;34,00 �;7,14 �;41,14 �;MARTES Y VIERNES;
+Caceres;Almoharín;10132;113;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Caceres;Abertura;10108;103;D;34,00 �;7,14 �;41,14 �;MARTES Y JUEVES;
+Caceres;Miajadas;10100;108;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Caceres;Miajadas;10109;110;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Caceres;Belvís de Monroy;10394;156;E;37,00 �;7,77 �;44,77 �;MARTES Y JUEVES;
+Badajoz;Cheles;6105;51;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Zahínos;6129;72;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Valencia del Mombuey;6134;81;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Talavera la Real;6140;21;A;25,00 �;5,25 �;30,25 �;LUNES, MARTES Y JUEVES;
+Badajoz;Valle de Matamoros;6177;64;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Badajoz;6190;39;B;28,00 �;5,88 �;33,88 �;LUNES, VIERNES;
+Badajoz;Entrín Bajo;6197;38;B;28,00 �;5,88 �;33,88 �;MIERCOLES;
+Badajoz;Aceuchal;6207;58;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Solana de los Barros;6209;45;B;28,00 �;5,88 �;33,88 �;MARTES;
+Badajoz;Puebla del Prior;6229;87;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Calzadilla de los Barros;6249;94;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Bienvenida;6250;105;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Fuentes de León;6280;114;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Usagre;6290;100;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Valencia del Ventoso;6330;97;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Higuera la Real;6350;99;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Fuente del Maestre;6360;67;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Burguillos del Cerro;6370;80;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Valverde de Burguillos;6378;88;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Feria;6390;60;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;La Lapa;6391;75;C;31,00 �;6,51 �;37,51 �;MIERCOLES;
+Badajoz;Alconera;6393;85;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Bodonal de la Sierra;6394;104;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Mengabril;6413;105;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Monterrubio de la Serena;6427;172;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Benquerencia de la Serena;6429;158;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Zalamea de la Serena;6430;149;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Malpartida de la Serena;6440;149;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Higuera de la Serena;6441;129;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Retamal de Llerena;6442;121;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Campillo de Llerena;6443;126;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Valencia de las Torres;6444;110;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Higuera de Llerena;6445;114;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Valle de la Serena;6458;121;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Magacela;6468;122;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;La Coronada;6469;128;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Badajoz;Villagonzalo;6473;79;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Valdetorres;6474;101;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Oliva de Mérida;6475;89;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Palomas;6476;87;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Puebla de la Reina;6477;92;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Manchita;6478;93;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Cordobilla de Lácara;6487;68;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Carmonita;6488;78;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Lobón;6498;33;B;28,00 �;5,88 �;33,88 �;MARTES Y JUEVES;
+Badajoz;La Codosera;6518;59;C;31,00 �;6,51 �;37,51 �;LUNES;
+Badajoz;Cabeza del Buey;6600;185;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Capilla;6612;206;G;43,00 �;9,03 �;52,03 �;JUEVES;
+Badajoz;Esparragosa de Lares;6620;166;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Talarrubias;6640;170;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Garlitos;6656;193;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Risco;6657;184;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Tamurejo;6658;200;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Baterno;6659;202;G;43,00 �;9,03 �;52,03 �;JUEVES;
+Badajoz;Fuenlabrada de los Montes;6660;203;G;43,00 �;9,03 �;52,03 �;JUEVES;
+Badajoz;Villarta de los Montes;6678;225;G;43,00 �;9,03 �;52,03 �;JUEVES;
+Badajoz;Valdecaballeros;6689;189;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;Garbayuela;6690;195;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Badajoz;La Haba;6714;116;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Rena;6715;112;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Villar de Rena;6716;115;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Badajoz;Calamonte;6810;56;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Don Álvaro;6820;70;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Alange;6840;79;D;34,00 �;7,14 �;41,14 �;MARTES;
+Badajoz;Arroyo de San Serván;6850;51;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Torremayor;6880;45;B;28,00 �;5,88 �;33,88 �;MARTES;
+Badajoz;Valverde de Mérida;6890;71;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Aljucén;6894;72;C;31,00 �;6,51 �;37,51 �;MARTES;
+Badajoz;Valverde de Llerena;6927;137;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Malcocinado;6928;162;F;40,00 �;8,40 �;48,40 �;MIERCOLES;
+Badajoz;Maguilla;6939;131;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Villagarcía de la Torre;6950;108;D;34,00 �;7,14 �;41,14 �;MIERCOLES;
+Badajoz;Casas de Reina;6960;123;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Reina;6970;126;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Badajoz;Fuente del Arco;6980;132;E;37,00 �;7,77 �;44,77 �;MIERCOLES;
+Caceres;Madrigalejo;10110;146;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Berzocana;10129;172;F;40,00 �;8,40 �;48,40 �;JUEVES;
+Caceres;Valdemorales;10131;122;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Escurial;10133;113;D;34,00 �;7,14 �;41,14 �;JUEVES;
+Caceres;Campo Lugar;10134;126;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Alcollarín;10135;129;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Casas de Don Antonio;10162;97;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Valdefuentes;10180;111;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Sierra de Fuentes;10181;104;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Torreorgaz;10182;109;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Torrequemada;10183;112;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Torremocha;10184;118;D;34,00 �;7,14 �;41,14 �;VIERNES;
+Caceres;Benquerencia;10185;126;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Torre de Santa María;10186;108;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Albalá;10187;104;D;34,00 �;7,14 �;41,14 �;MARTES;
+Caceres;Santiago del Campo;10191;118;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Hinojal;10192;127;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Talaván;10193;124;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Santa Marta de Magasca;10198;121;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Madroñera;10210;151;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Herguijuela;10230;142;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Conquista de la Sierra;10240;145;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Garciaz;10250;158;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Aldeacentenera;10251;177;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Torrecillas de la Tiesa;10252;167;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Santa Cruz de la Sierra;10260;133;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Robledillo de Trujillo;10261;129;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Abertura;10262;129;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Villamesías;10263;121;E;37,00 �;7,77 �;44,77 �;JUEVES;
+Caceres;Robledillo de Trujillo;10269;123;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Plasenzuela;10271;130;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Ibahernando;10280;138;E;37,00 �;7,77 �;44,77 �;MARTES;
+Caceres;Talayuela;10310;223;G;43,00 �;9,03 �;52,03 �;POSTVENTA 601;
+Caceres;Bohonal de Ibor;10320;218;G;43,00 �;9,03 �;52,03 �;MARTES;
+Caceres;Valdecañas de Tajo;10329;212;G;43,00 �;9,03 �;52,03 �;MARTES Y JUEVES;
+Caceres;Carrascalejo;10331;234;G;43,00 �;9,03 �;52,03 �;JUEVES;
+Caceres;Almaraz;10350;196;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Deleitosa;10370;180;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Robledollano;10371;193;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Jaraicejo;10380;171;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Saucedilla;10390;200;F;40,00 �;8,40 �;48,40 �;MARTES;
+Caceres;Herrera de Alcántara;10512;115;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Toril;10520;216;G;43,00 �;9,03 �;52,03 �;LUNES;
+Caceres;Serradilla;10530;149;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Mirabel;10540;166;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Aliseda;10550;71;C;31,00 �;6,51 �;37,51 �;LUNES;
+Caceres;Herreruela;10560;77;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Salorino;10570;85;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Membrío;10580;93;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Casas de Millán;10592;143;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;El Torno;10617;197;F;40,00 �;8,40 �;48,40 �;MIERCOLES Y VIERNES;
+Caceres;Mohedas de Granadilla;10664;174;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Guijo de Granadilla;10665;175;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Aceituna;10666;192;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Valdeobispo;10672;180;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Galisteo;10691;164;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Portezuelo;10828;139;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Torrejoncillo;10830;149;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Santibáñez el Alto;10859;193;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Acehúche;10879;153;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Pescueza;10882;166;F;40,00 �;8,40 �;48,40 �;LUNES;
+Caceres;Portaje;10883;158;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Alcántara;10970;113;D;34,00 �;7,14 �;41,14 �;LUNES;
+Caceres;Piedras Albas;10991;123;E;37,00 �;7,77 �;44,77 �;LUNES;
+Caceres;Abadía;10748;176;F;40,00;8,40;48,40;SIN DATO
+Caceres;Acebo;10857;150;E;37,00;7,77;44,77;SIN DATO
+Caceres;Ahigal;10650;148;E;37,00;7,77;44,77;SIN DATO
+Caceres;Aldea del Cano;10163;87;D;33,00;6,93;39,93;SIN DATO
+Caceres;Aldehuela de Jerte;10671;153;E;37,00;7,77;44,77;SIN DATO
+Caceres;Arroyomolinos;10163;81;D;33,00;6,93;39,93;SIN DATO
+Caceres;Arroyomolinos de la Vera;10410;174;F;40,00;8,40;48,40;SIN DATO
+Caceres;Cabezabellosa;10729;169;F;40,00;8,40;48,40;SIN DATO
+Caceres;Cabrero;10680;146;E;37,00;7,77;44,77;SIN DATO
+Caceres;Cadalso;10865;150;E;37,00;7,77;44,77;SIN DATO
+Caceres;Campillo de Deleitosa;10370;137;E;37,00;7,77;44,77;SIN DATO
+Caceres;Cañaveral;10591;121;E;37,00;7,77;44,77;SIN DATO
+Caceres;Carcaboso;10670;143;E;37,00;7,77;44,77;SIN DATO
+Caceres;Casares de las Hurdes;10628;164;F;40,00;8,40;48,40;SIN DATO
+Caceres;Casas de Don Gómez;10818;133;E;37,00;7,77;44,77;SIN DATO
+Caceres;Casas del Castañar;10616;165;F;40,00;8,40;48,40;SIN DATO
+Caceres;Casatejada;10309;159;E;37,00;7,77;44,77;SIN DATO
+Caceres;Casillas de Coria;10800;122;E;37,00;7,77;44,77;SIN DATO
+Caceres;Castañar de Ibor;10340;154;E;37,00;7,77;44,77;SIN DATO
+Caceres;Ceclavín;10870;119;D;33,00;6,93;39,93;SIN DATO
+Caceres;Cerezo;10663;154;E;37,00;7,77;44,77;SIN DATO
+Caceres;Cilleros;10895;135;E;37,00;7,77;44,77;SIN DATO
+Caceres;Collado;10860;154;E;37,00;7,77;44,77;SIN DATO
+Caceres;Descargamaría;10866;153;E;37,00;7,77;44,77;SIN DATO
+Caceres;El Gordo;10393;156;E;37,00;7,77;44,77;SIN DATO
+Caceres;Fresnedoso de Ibor;10328;157;E;37,00;7,77;44,77;SIN DATO
+Caceres;Garganta la Olla;10412;172;F;40,00;8,40;48,40;SIN DATO
+Caceres;Gargantilla;10749;177;F;40,00;8,40;48,40;SIN DATO
+Caceres;Garvín;10333;156;E;37,00;7,77;44,77;SIN DATO
+Caceres;Guijo de Coria;10815;143;E;37,00;7,77;44,77;SIN DATO
+Caceres;Guijo de Santa Bárbara;10459;187;F;40,00;8,40;48,40;SIN DATO
+Caceres;Higuera;10350;148;E;37,00;7,77;44,77;SIN DATO
+Caceres;Holguera;10829;132;E;37,00;7,77;44,77;SIN DATO
+Caceres;Huélaga;10840;134;E;37,00;7,77;44,77;SIN DATO
+Caceres;Jarilla;10691;144;E;37,00;7,77;44,77;SIN DATO
+Caceres;La Aldea del Obispo;10515;61;C;30,00;6,30;36,30;SIN DATO
+Caceres;La Cumbre;10135;111;D;33,00;6,93;39,93;SIN DATO
+Caceres;La Garganta;10759;184;F;40,00;8,40;48,40;SIN DATO
+Caceres;La Pesga;10649;147;E;37,00;7,77;44,77;SIN DATO
+Caceres;Ladrillar;10624;166;F;40,00;8,40;48,40;SIN DATO
+Caceres;Majadas;10529;159;E;37,00;7,77;44,77;SIN DATO
+Caceres;Marchagaz;10662;154;E;37,00;7,77;44,77;SIN DATO
+Caceres;Mesas de Ibor;10340;155;E;37,00;7,77;44,77;SIN DATO
+Caceres;Millanes;10392;165;F;40,00;8,40;48,40;SIN DATO
+Caceres;Navas del Madroño;10970;76;D;33,00;6,93;39,93;SIN DATO
+Caceres;Navezuelas;10374;147;E;37,00;7,77;44,77;SIN DATO
+Caceres;Nuñomoral;10626;165;F;40,00;8,40;48,40;SIN DATO
+Caceres;Oliva de Plasencia;10667;155;E;37,00;7,77;44,77;SIN DATO
+Caceres;Palomero;10660;156;E;37,00;7,77;44,77;SIN DATO
+Caceres;Pasarón de la Vera;10411;175;F;40,00;8,40;48,40;SIN DATO
+Caceres;Peraleda de la Mata;10334;169;F;40,00;8,40;48,40;SIN DATO
+Caceres;Peraleda de San Román;10335;167;F;40,00;8,40;48,40;SIN DATO
+Caceres;Pinofranqueado;10638;157;E;37,00;7,77;44,77;SIN DATO
+Caceres;Piornal;10615;162;F;40,00;8,40;48,40;SIN DATO
+Caceres;Pozuelo de Zarzón;10813;135;E;37,00;7,77;44,77;SIN DATO
+Caceres;Puerto de Santa Cruz;10250;124;E;37,00;7,77;44,77;SIN DATO
+Caceres;Rebollar;10691;138;E;37,00;7,77;44,77;SIN DATO
+Caceres;Robledillo de la Vera;10493;190;F;40,00;8,40;48,40;SIN DATO
+Caceres;Romangordo;10393;142;E;37,00;7,77;44,77;SIN DATO
+Caceres;Rosalejo;10390;137;E;37,00;7,77;44,77;SIN DATO
+Caceres;Ruanes;10272;104;D;33,00;6,93;39,93;SIN DATO
+Caceres;Salvatierra de Santiago;10280;101;D;33,00;6,93;39,93;SIN DATO
+Caceres;San Martín de Trevejo;10892;152;E;37,00;7,77;44,77;SIN DATO
+Caceres;Santa Ana;10164;86;D;33,00;6,93;39,93;SIN DATO
+Caceres;Santa Cruz de Paniagua;10661;151;E;37,00;7,77;44,77;SIN DATO
+Caceres;Santibáñez el Bajo;10812;129;E;37,00;7,77;44,77;SIN DATO
+Caceres;Segura de Toro;10739;173;F;40,00;8,40;48,40;SIN DATO
+Caceres;Serrejón;10528;160;E;37,00;7,77;44,77;SIN DATO
+Caceres;Torre de Don Miguel;10864;153;E;37,00;7,77;44,77;SIN DATO
+Caceres;Torrecilla de los Ángeles;10869;155;E;37,00;7,77;44,77;SIN DATO
+Caceres;Torremenga;10413;164;F;40,00;8,40;48,40;SIN DATO
+Caceres;Valdelacasa de Tajo;10332;163;F;40,00;8,40;48,40;SIN DATO
+Caceres;Valverde del Fresno;10890;150;E;37,00;7,77;44,77;SIN DATO
+Caceres;Vegaviana;10840;133;E;37,00;7,77;44,77;SIN DATO
+Caceres;Villa del Campo;10814;142;E;37,00;7,77;44,77;SIN DATO
+Caceres;Villamiel;10893;152;E;37,00;7,77;44,77;SIN DATO
+Caceres;Villar del Pedroso;10330;163;F;40,00;8,40;48,40;SIN DATO
+Caceres;Villasbuenas de Gata;10858;151;E;37,00;7,77;44,77;SIN DATO
+Badajoz;Atalaya;6329;80;D;33,00;6,93;39,93;SIN DATO
+Badajoz;Corte de Peleas;6208;47;B;27,00;5,67;32,67;SIN DATO
+Badajoz;El Carrascalejo;6890;70;C;30,00;6,30;36,30;SIN DATO
+Badajoz;Esparragosa de la Serena;6439;129;E;37,00;7,77;44,77;SIN DATO
+Badajoz;Helechosa de los Montes;6692;179;F;40,00;8,40;48,40;SIN DATO
+Badajoz;La Nava de Santiago;6191;23;A;25,00;5,25;30,25;SIN DATO
+Badajoz;La Roca de la Sierra;6890;29;B;27,00;5,67;32,67;SIN DATO
+Badajoz;La Zarza;6711;99;D;33,00;6,93;39,93;SIN DATO
+Badajoz;Medina de las Torres;6320;85;D;33,00;6,93;39,93;SIN DATO
+Badajoz;Nogales;6174;52;C;30,00;6,30;36,30;SIN DATO
+Badajoz;Puebla de la Calzada;6480;30;B;27,00;5,67;32,67;SIN DATO
+Badajoz;Sancti-Spíritus;6280;92;D;33,00;6,93;39,93;SIN DATO
+Badajoz;Santa Amalia;6713;110;D;33,00;6,93;39,93;SIN DATO
+Badajoz;Santa Marta;6230;58;C;30,00;6,30;36,30;SIN DATO
+Badajoz;Valdelacalzada;6800;22;A;25,00;5,25;30,25;SIN DATO
+Badajoz;Villar del Rey;6139;49;B;27,00;5,67;32,67;SIN DATO

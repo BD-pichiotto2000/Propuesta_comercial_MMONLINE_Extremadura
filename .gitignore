@@ -1,0 +1,9 @@
+# Archivos sensibles del sistema
+.bash_history
+.claude.json
+.gitconfig
+.lesshst
+.node_repl_history
+.pdfbox.cache
+.viminfo
+xlsxtmp/

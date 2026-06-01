@@ -1,0 +1,151 @@
+Provincia;Municipio;Codigo Postal;Distancia (km);Zona;Dia Reparto (Voluminosa)
+Badajoz;Badajoz;6001;0;A;L-M-X-J-V
+Badajoz;Badajoz;6002;0;A;L-M-X-J-V
+Badajoz;Badajoz;6003;0;A;L-M-X-J-V
+Badajoz;Badajoz;6004;0;A;L-M-X-J-V
+Badajoz;Badajoz;6005;0;A;L-M-X-J-V
+Badajoz;Badajoz;6006;0;A;L-M-X-J-V
+Badajoz;Badajoz;6007;0;A;L-M-X-J-V
+Badajoz;Badajoz;6008;0;A;L-M-X-J-V
+Badajoz;Badajoz;6009;0;A;L-M-X-J-V
+Badajoz;Badajoz;6010;0;A;L-M-X-J-V
+Badajoz;Badajoz;6011;0;A;L-M-X-J-V
+Badajoz;Puebla de Obando;6139;21;A;L-V
+Badajoz;Pueblonuevo del Guadiana;6481;33;B;M-J
+Badajoz;Alconchel;6111;43;B;X-V
+Badajoz;Cordobilla de Lácara;6179;38;B;M-J
+Badajoz;Mérida;6801;55;C;M-J
+Badajoz;Mérida;6802;55;C;M-J
+Badajoz;Almendralejo;6201;53;C;M-J
+Badajoz;Aceuchal;6202;57;C;M-J
+Badajoz;Torremejía;6170;52;C;M-J
+Badajoz;Fuente del Maestre;6217;68;C;M-J 
+Badajoz;Zafra;6301;70;C;M-J 
+Badajoz;La Parra;6231;68;C;M-J
+Badajoz;Feria;6232;72;C;M-J
+Badajoz;Ribera del Fresno;6312;72;C;M-J
+Badajoz;Jerez de los Caballeros;6381;63;C;X-V
+Badajoz;Higuera de Vargas;6114;51;C;X-V
+Badajoz;Zahínos;6113;54;C;X-V
+Badajoz;Cheles;6112;53;C;X-V
+Badajoz;Villanueva del Fresno;6115;68;C;X-V
+Badajoz;Oliva de la Frontera;6119;72;C;X-V
+Badajoz;Calamonte;6144;51;C;M-J
+Badajoz;Villalba de los Barros;6221;62;C;M-J
+Badajoz;La Morera;6311;73;C;M-J
+Badajoz;Santa Marta de los Barros;6233;68;C;M-J
+Badajoz;Villagonzalo;6471;77;D;M-J
+Badajoz;Don Benito;6401;96;D;M-J
+Badajoz;Villanueva de la Serena;6701;102;D;M-J
+Badajoz;Orellana de la Sierra;6742;110;D;M-J
+Badajoz;Talarrubias;6761;113;D;J
+Badajoz;Herrera del Duque;6680;118;D;J
+Badajoz;Llera;6908;103;D;M-J
+Badajoz;Montemolín;6294;88;D;X-V
+Badajoz;Calera de León;6245;95;D;X-V
+Badajoz;Bodonal de la Sierra;6246;87;D;X-V
+Badajoz;Segura de León;6247;100;D;X-V
+Badajoz;Valencia del Ventoso;6295;83;D;X-V
+Badajoz;Trasierra;6911;113;D;J
+Badajoz;Peraleda del Zaucejo;6912;115;D;J
+Badajoz;Castuera;6421;125;E;J
+Badajoz;Capilla;6649;128;E;J
+Badajoz;Zarza-Capilla;6649;130;E;J
+Badajoz;Siruela;6648;125;E;J
+Badajoz;Garlitos;6648;132;E;J
+Badajoz;Peñalsordo;6648;130;E;J
+Badajoz;Puebla de Alcocer;6691;120;D;J
+Badajoz;Valle de Matamoros;6118;79;D;X-V
+Badajoz;Valle de Santa Ana;6117;77;D;X-V
+Caceres;Caceres;10001;84;D;L-M-X-J-V
+Caceres;Caceres;10002;84;D;L-M-X-J-V
+Caceres;Caceres;10003;84;D;L-M-X-J-V
+Caceres;Caceres;10004;84;D;L-M-X-J-V
+Caceres;Caceres;10005;84;D;L-M-X-J-V
+Caceres;Zarza de Montánchez;10171;98;D;M-V
+Caceres;Mata de Alcántara;10982;88;D;L-V
+Caceres;San Vicente de Alcántara (Cáceres);10501;68;C;L-V
+Caceres;Trujillo;10201;114;D;M-J
+Caceres;Garciaz;10121;115;D;M-J
+Caceres;Guadalupe;10140;156;E;J
+Caceres;Escurial;10101;100;D;M-J
+Caceres;Abertura;10108;103;D;M-J
+Caceres;Coria;10801;128;E;L-V
+Caceres;Portaje;10812;131;E;L-V
+Caceres;Guijo de Coria;10810;129;E;L-V
+Caceres;Morcillo;10821;120;E;L-V
+Caceres;Calzadilla;10821;125;E;L-V
+Caceres;Montehermoso;10810;126;E;L-V
+Caceres;Moraleja;10840;135;E;L-V
+Caceres;Cilleros;10850;139;E;L-V
+Caceres;Hoyos;10860;137;E;L-V
+Caceres;Perales del Puerto;10861;140;E;L-V
+Caceres;San Martín de Trevejo;10892;146;E;L-V
+Caceres;Valverde del Fresno;10896;142;E;L-V
+Caceres;Acebo;10891;143;E;L-V
+Caceres;Robledillo de Gata;10867;141;E;L-V
+Caceres;Descargamaría;10868;142;E;L-V
+Caceres;Alcobaza;10850;140;E;L-V
+Caceres;Plasencia;10601;148;E;L-V
+Caceres;Carcaboso;10610;143;E;L-V
+Caceres;Oliva de Plasencia;10612;141;E;L-V
+Caceres;Galisteo;10614;140;E;L-V
+Caceres;Aldehuela del Jerte;10614;141;E;L-V
+Caceres;Casas de Millán;10614;140;E;L-V
+Caceres;Mirabel;10689;148;E;L-V
+Caceres;Serrejón;10392;128;E;L-V
+Caceres;Millanes;10392;126;E;L-V
+Caceres;Casas de Millán;10614;140;E;L-V
+Caceres;Holguera;10620;135;E;L-V
+Caceres;Saucedilla;10395;139;E;M-V
+Caceres;Navalmoral de la Mata;10301;167;F;X-V
+Caceres;Casatejada;10392;155;E;X-V
+Caceres;Bohonal de Ibor;10394;150;E;M-J
+Caceres;Berrocalejo;10396;158;E;M-J
+Caceres;Carrascalejo;10397;155;E;M-J
+Caceres;Valdecañas de Tajo;10394;152;E;M-J
+Caceres;Peraleda de la Mata;10392;158;E;M-J
+Caceres;Almaraz;10360;148;E;X-V
+Caceres;Saucedilla;10361;143;E;X-V
+Caceres;Toril;10362;141;E;M-J
+Caceres;Mesas de Ibor;10394;150;E;M-J
+Caceres;Villanueva de la Vera;10490;178;F;X-V
+Caceres;Jaraíz de la Vera;10400;168;F;X-V
+Caceres;Jarandilla de la Vera;10450;179;F;X-V
+Caceres;Cuacos de Yuste;10430;172;F;X-V
+Caceres;Garganta la Olla;10440;174;F;X-V
+Caceres;Pasarón de la Vera;10460;171;F;X-V
+Caceres;Tejeda de Tiétar;10420;165;F;X-V
+Caceres;Aldeanueva de la Vera;10480;178;F;X-V
+Caceres;Losar de la Vera;10470;175;F;X-V
+Caceres;Robledillo de la Vera;10460;172;F;X-V
+Caceres;Talaveruela de la Vera;10481;176;F;X-V
+Caceres;Viandar de la Vera;10482;177;F;X-V
+Caceres;Madrigal de la Vera;10484;181;F;X-V
+Caceres;Piornal;10620;167;F;X-V
+Caceres;Casas del Castañar;10611;164;F;X-V
+Caceres;Jerte;10614;172;F;X-V
+Caceres;Cabezuela del Valle;10610;164;F;X-V
+Caceres;Valdastillas;10614;166;F;X-V
+Caceres;Navaconcejo;10613;161;F;X-V
+Caceres;Hervás;10700;167;F;L
+Caceres;Baños de Montemayor;10710;165;F;L
+Caceres;Casas del Monte;10720;164;F;L
+Caceres;Aldeanueva del Camino;10730;158;E;L
+Caceres;La Garganta;10740;165;F;L
+Caceres;Zarza de Granadilla;10750;150;E;L
+Caceres;Abadía;10750;143;E;L
+Caceres;Granadilla;10750;144;E;L
+Caceres;Segura de Toro;10750;151;E;L
+Caceres;Vegas de Coria;10810;131;E;L
+Caceres;Cachorrilla;10821;128;E;L
+Caceres;Pescueza;10823;130;E;L
+Caceres;Barrado;10696;109;D;X-V
+Caceres;Romangordo;10394;156;E;M-J
+Caceres;Mesas de Ibor;10329;212;G;M-J
+Caceres;Toril;10520;216;G;L
+Caceres;Torno, El;10617;197;F;X-V
+Caceres;Moheda, La;10664;174;F;L
+Caceres;Guijo de Galisteo;10665;175;F;L
+Caceres;Santibáñez el Bajo;10666;192;F;L
+Caceres;Santibáñez el Alto;10859;193;F;L
