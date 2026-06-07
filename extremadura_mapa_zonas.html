@@ -221,7 +221,6 @@
   <button class="filtro-btn" onclick="filtrarDia('MIERCOLES')">Miércoles</button>
   <button class="filtro-btn" onclick="filtrarDia('JUEVES')">Jueves</button>
   <button class="filtro-btn" onclick="filtrarDia('VIERNES')">Viernes</button>
-  <button class="filtro-btn" onclick="filtrarDia('SIN DATO')">Sin dato</button>
 </div>
 <div id="stats"></div>
 
@@ -231,82 +230,81 @@
 // CONFIGURACIÓN DE ZONAS
 // ============================================================
 const ZONAS = {
-  A: { color: '#00e676', label: '0–25 km',     precio: '25 €',  total: '30,25 €' },
-  B: { color: '#40c4ff', label: '25–50 km',    precio: '28 €',  total: '33,88 €' },
-  C: { color: '#ffeb3b', label: '50–75 km',    precio: '31 €',  total: '37,51 €' },
-  D: { color: '#ff9800', label: '75–120 km',   precio: '34 €',  total: '41,14 €' },
-  E: { color: '#ff5722', label: '120–160 km',  precio: '37 €',  total: '44,77 €' },
-  F: { color: '#e91e63', label: '160–200 km',  precio: '40 €',  total: '48,40 €' },
-  G: { color: '#9c27b0', label: '200–250 km',  precio: '43 €',  total: '52,03 €' },
-  H: { color: '#607d8b', label: '250–300 km',  precio: '45 €',  total: '54,45 €' }
+  A: { color: '#00e676', label: '0–25 km',     precio: '28 €',  total: '28 €' },
+  B: { color: '#40c4ff', label: '25–50 km',    precio: '30 €',  total: '30 €' },
+  C: { color: '#ffeb3b', label: '50–75 km',    precio: '32 €',  total: '32 €' },
+  D: { color: '#ff9800', label: '75–120 km',   precio: '34 €',  total: '34 €' },
+  E: { color: '#ff5722', label: '120–160 km',  precio: '36 €',  total: '36 €' },
+  F: { color: '#e91e63', label: '160–200 km',  precio: '38 €',  total: '38 €' },
+  G: { color: '#9c27b0', label: '200–250 km',  precio: '40 €',  total: '40 €' },
+  H: { color: '#607d8b', label: '250–300 km',  precio: '42 €',  total: '42 €' }
 };
 
 // ============================================================
 // DATOS: municipios con coordenadas reales + dia de reparto
 // ============================================================
 const cpDias = {
-  '10748':'SIN DATO',
-  '10857':'SIN DATO',
-  '10650':'SIN DATO',
-  '10671':'SIN DATO',
-  '10410':'SIN DATO',
-  '10729':'SIN DATO',
-  '10865':'SIN DATO',
-  '10591':'SIN DATO',
-  '10670':'SIN DATO',
-  '10628':'SIN DATO',
-  '10818':'SIN DATO',
-  '10616':'SIN DATO',
-  '10309':'SIN DATO',
-  '10340':'SIN DATO',
-  '10870':'SIN DATO',
-  '10663':'SIN DATO',
-  '10895':'SIN DATO',
-  '10866':'SIN DATO',
-  '10328':'SIN DATO',
-  '10412':'SIN DATO',
-  '10749':'SIN DATO',
-  '10333':'SIN DATO',
-  '10815':'SIN DATO',
-  '10459':'SIN DATO',
-  '10829':'SIN DATO',
-  '10515':'SIN DATO',
-  '10759':'SIN DATO',
-  '10649':'SIN DATO',
-  '10624':'SIN DATO',
-  '10529':'SIN DATO',
-  '10662':'SIN DATO',
-  '10340':'SIN DATO',
-  '10374':'SIN DATO',
-  '10626':'SIN DATO',
-  '10667':'SIN DATO',
-  '10660':'SIN DATO',
-  '10411':'SIN DATO',
-  '10334':'SIN DATO',
-  '10335':'SIN DATO',
-  '10638':'SIN DATO',
-  '10615':'SIN DATO',
-  '10813':'SIN DATO',
-  '10493':'SIN DATO',
-  '10272':'SIN DATO',
-  '10661':'SIN DATO',
-  '10739':'SIN DATO',
-  '10528':'SIN DATO',
-  '10864':'SIN DATO',
-  '10869':'SIN DATO',
-  '10413':'SIN DATO',
-  '10332':'SIN DATO',
-  '10890':'SIN DATO',
-  '10814':'SIN DATO',
-  '10893':'SIN DATO',
-  '10330':'SIN DATO',
-  '10858':'SIN DATO',
-  '10176':'SIN DATO',
-  '06329':'SIN DATO',
-  '06439':'SIN DATO',
-  '06711':'SIN DATO',
-  '06320':'SIN DATO',
-  '06713':'SIN DATO',
+  '10748':'LUNES',
+  '10857':'LUNES',
+  '10650':'LUNES',
+  '10671':'LUNES',
+  '10410':'MIERCOLES Y VIERNES',
+  '10729':'LUNES',
+  '10865':'LUNES Y VIERNES',
+  '10591':'LUNES',
+  '10670':'LUNES',
+  '10628':'MIERCOLES Y VIERNES',
+  '10818':'LUNES',
+  '10616':'MIERCOLES Y VIERNES',
+  '10309':'MARTES',
+  '10340':'MARTES',
+  '10870':'LUNES',
+  '10663':'LUNES',
+  '10895':'LUNES Y VIERNES',
+  '10866':'LUNES Y VIERNES',
+  '10328':'MARTES',
+  '10412':'MIERCOLES Y VIERNES',
+  '10749':'LUNES',
+  '10333':'MARTES',
+  '10815':'LUNES Y VIERNES',
+  '10459':'MIERCOLES Y VIERNES',
+  '10829':'LUNES',
+  '10515':'LUNES',
+  '10759':'LUNES',
+  '10649':'LUNES',
+  '10624':'MIERCOLES Y VIERNES',
+  '10529':'LUNES',
+  '10662':'LUNES',
+  '10374':'MARTES',
+  '10626':'MIERCOLES Y VIERNES',
+  '10667':'LUNES',
+  '10660':'LUNES',
+  '10411':'MIERCOLES Y VIERNES',
+  '10334':'MARTES',
+  '10335':'MARTES',
+  '10638':'MARTES',
+  '10615':'MIERCOLES Y VIERNES',
+  '10813':'LUNES',
+  '10493':'MIERCOLES Y VIERNES',
+  '10272':'MARTES',
+  '10661':'LUNES',
+  '10739':'LUNES',
+  '10528':'LUNES',
+  '10864':'LUNES Y VIERNES',
+  '10869':'LUNES Y VIERNES',
+  '10413':'MIERCOLES Y VIERNES',
+  '10332':'MARTES',
+  '10890':'LUNES Y VIERNES',
+  '10814':'LUNES Y VIERNES',
+  '10893':'LUNES Y VIERNES',
+  '10330':'MARTES Y JUEVES',
+  '10858':'LUNES',
+  '10176':'MARTES Y VIERNES',
+  '06329':'MIERCOLES',
+  '06439':'JUEVES',
+  '06711':'JUEVES',
+  '06320':'MIERCOLES',
+  '06713':'JUEVES',
 
   '06001':'LUNES A VIERNES',
   '06002':'LUNES A VIERNES',
@@ -547,8 +545,8 @@ const cpDias = {
   '10135':'JUEVES',
   '10136':'JUEVES',
   '10137':'JUEVES',
-  '10138':'SIN DATO',
-  '10139':'SIN DATO',
+  '10138':'JUEVES',
+  '10139':'JUEVES',
   '10140':'JUEVES',
   '10160':'MARTES',
   '10161':'MARTES',
@@ -662,10 +660,10 @@ const cpDias = {
   '10710':'LUNES',
   '10720':'LUNES',
   '10730':'LUNES',
-  '10731':'SIN DATO',
+  '10731':'LUNES',
   '10740':'LUNES',
   '10750':'LUNES',
-  '10760':'SIN DATO',
+  '10760':'LUNES',
   '10800':'LUNES',
   '10801':'LUNES Y VIERNES',
   '10810':'LUNES',
@@ -1066,7 +1064,6 @@ const DIA_COLORS = {
   'MARTES Y JUEVES':          '#7b1fa2',
   'LUNES, JUEVES Y VIERNES':  '#e91e63',
   'LUNES A VIERNES':          '#ffd600',
-  'SIN DATO':                 '#444',
 };
 
 function getDiaColor(dia) {
@@ -1120,13 +1117,13 @@ municipios.forEach(m => {
 function getDiaPorCps(cps) {
   for (const cp of cps) {
     const key = cp.replace(/\D/g,'').padStart(5,'0');
-    if (cpDias[key] && cpDias[key] !== 'SIN DATO') return cpDias[key];
+    if (cpDias[key]) return cpDias[key];
   }
   // fallback: buscar sin padding
   for (const cp of cps) {
-    if (cpDias[cp] && cpDias[cp] !== 'SIN DATO') return cpDias[cp];
+    if (cpDias[cp]) return cpDias[cp];
   }
-  return 'SIN DATO';
+  return 'PENDIENTE';
 }
 
 // Crear marcadores guardando referencia
@@ -1154,7 +1151,7 @@ Object.values(seen).forEach(m => {
     const diaVal = diaReal;
     diaEl.textContent = diaVal;
     diaEl.style.background = getDiaColor(diaVal);
-    diaEl.style.color = diaVal === 'SIN DATO' ? '#aaa' : '#fff';
+    diaEl.style.color = '#fff';
     document.getElementById('info-panel').style.display = 'block';
   });
 });
@@ -1166,8 +1163,8 @@ function filtrarDia(dia) {
   event.target.classList.add('active');
 
   todosMarkersData.forEach(({marker, data}) => {
-    const diaM = (data.diaReal || 'SIN DATO').toUpperCase();
-    const mostrar = dia === 'TODOS' || diaM.includes(dia) || (dia === 'SIN DATO' && diaM === 'SIN DATO');
+    const diaM = (data.diaReal || '').toUpperCase();
+    const mostrar = dia === 'TODOS' || diaM.includes(dia);
     if (mostrar) {
       if (!map.hasLayer(marker)) marker.addTo(map);
     } else {
@@ -1212,7 +1209,7 @@ municipios.forEach(m => counts[m.zona]++);
 const diasCounts = {};
 municipios.forEach(m => {
   const cp = (m.cp || '').replace(/\D/g,'').padStart(5,'0');
-  const d = (cpDias[cp] || m.dia || 'SIN DATO').toUpperCase();
+  const d = (cpDias[cp] || m.dia || 'VARIOS').toUpperCase();
   const key = d.includes('LUNES') && d.includes('VIERNES') ? 'L-X-V / Varios' :
               d.includes('MARTES') && d.includes('JUEVES') ? 'Ma-J / Varios' :
               d.includes('LUNES') && !d.includes(',') ? 'LUNES' :
@@ -1220,7 +1217,7 @@ municipios.forEach(m => {
               d.includes('MIERCOLES') && !d.includes(',') ? 'MIERCOLES' :
               d.includes('JUEVES') && !d.includes(',') ? 'JUEVES' :
               d.includes('VIERNES') && !d.includes(',') ? 'VIERNES' :
-              d === 'SIN DATO' ? 'SIN DATO' : 'VARIOS';
+              'VARIOS';
   diasCounts[key] = (diasCounts[key] || 0) + 1;
 });
 
@@ -1230,13 +1227,13 @@ Object.entries(ZONAS).forEach(([z, info]) => {
     <div class="stat-item">
       <div class="s-zone" style="color:${info.color}">ZONA ${z}</div>
       <div class="s-count">${counts[z]}</div>
-      <div class="s-price">${info.total} c/IVA</div>
+      <div class="s-price">${info.total} + IVA</div>
     </div>`;
 });
 // Separador
 statsBar.innerHTML += `<div class="stat-item" style="border-left:2px solid rgba(233,69,96,0.4);min-width:10px"></div>`;
-const diasOrder = ['LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','L-X-V / Varios','Ma-J / Varios','VARIOS','SIN DATO'];
-const diasColors = {'LUNES':'#00bcd4','MARTES':'#8bc34a','MIERCOLES':'#ff9800','JUEVES':'#9c27b0','VIERNES':'#f44336','L-X-V / Varios':'#00acc1','Ma-J / Varios':'#7b1fa2','VARIOS':'#607d8b','SIN DATO':'#444'};
+const diasOrder = ['LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','L-X-V / Varios','Ma-J / Varios','VARIOS'];
+const diasColors = {'LUNES':'#00bcd4','MARTES':'#8bc34a','MIERCOLES':'#ff9800','JUEVES':'#9c27b0','VIERNES':'#f44336','L-X-V / Varios':'#00acc1','Ma-J / Varios':'#7b1fa2','VARIOS':'#607d8b'};
 diasOrder.forEach(d => {
   if (!diasCounts[d]) return;
   statsBar.innerHTML += `
@@ -1295,7 +1292,7 @@ function buscarCP() {
     }).addTo(map);
 
     // Rellenar panel info
-    const diaVal = data.diaReal || 'SIN DATO';
+    const diaVal = data.diaReal || 'PENDIENTE';
     document.getElementById('ip-municipio').textContent = data.mun;
     document.getElementById('ip-provincia').textContent = data.prov;
     document.getElementById('ip-cp').textContent        = data.cps.join(' / ');
@@ -1311,7 +1308,7 @@ function buscarCP() {
     const diaEl = document.getElementById('ip-dia');
     diaEl.textContent       = diaVal;
     diaEl.style.background  = getDiaColor(diaVal);
-    diaEl.style.color       = diaVal === 'SIN DATO' ? '#aaa' : '#fff';
+    diaEl.style.color       = '#fff';
     document.getElementById('info-panel').style.display = 'block';
 
     msg.textContent = '✓ ' + data.mun;
