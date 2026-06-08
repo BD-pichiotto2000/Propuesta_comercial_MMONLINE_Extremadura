@@ -206,47 +206,68 @@
     /* ── TARIFAS ── */
     .tarifas-grid {
       display: grid; grid-template-columns: repeat(4, 1fr);
-      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
-      background: var(--border); gap: 1px; margin-bottom: 18px;
+      gap: 12px; margin-bottom: 20px;
     }
     .tarifa-card {
-      background: var(--s2); text-align: center;
+      background: var(--s2);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      text-align: center;
       display: flex; flex-direction: column;
-      transition: background 0.2s;
+      overflow: hidden; position: relative;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
     }
-    .tarifa-card:hover { background: var(--s3); }
-    .tarifa-accent { height: 3px; width: 100%; flex-shrink: 0; }
+    .tarifa-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 90px;
+      background: linear-gradient(to bottom, var(--tc, #fff) 0%, transparent 100%);
+      opacity: 0.05; pointer-events: none; z-index: 0;
+    }
+    .tarifa-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--tc, rgba(255,255,255,0.15));
+      box-shadow: 0 16px 40px -10px rgba(0,0,0,0.6);
+    }
+    .tarifa-card > * { position: relative; z-index: 1; }
+    .tarifa-accent {
+      height: 5px; width: 100%; flex-shrink: 0;
+      background: var(--tc, var(--accent));
+    }
     .tarifa-head {
-      padding: 15px 13px 12px;
-      border-bottom: 1px solid var(--border);
+      padding: 18px 14px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
     .tarifa-zona {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 2.5px;
-      text-transform: uppercase; margin-bottom: 7px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 2.8px;
+      text-transform: uppercase; margin-bottom: 10px;
+      color: var(--tc, var(--text));
     }
     .tarifa-km {
-      display: inline-block; font-size: 0.63rem; color: var(--muted);
-      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
-      border-radius: 3px; padding: 2px 8px;
+      display: inline-block; font-size: 0.66rem; color: var(--muted2);
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 5px; padding: 3px 10px; line-height: 1.4;
     }
     .tarifa-body {
-      padding: 16px 13px 15px; flex: 1;
+      padding: 20px 14px 18px; flex: 1;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
     }
     .tarifa-precio {
-      font-size: 1.85rem; font-weight: 700; line-height: 1;
-      letter-spacing: -1px; margin-bottom: 4px;
+      font-size: 2.15rem; font-weight: 800; line-height: 1;
+      letter-spacing: -1.5px; margin-bottom: 5px;
+      color: var(--tc, var(--text));
     }
-    .tarifa-precio .dec { font-size: 1rem; font-weight: 500; letter-spacing: 0; opacity: 0.6; }
-    .tarifa-precio .cur { font-size: 1rem; font-weight: 600; margin-left: 2px; opacity: 0.7; }
+    .tarifa-precio .dec { font-size: 1.1rem; font-weight: 600; letter-spacing: 0; opacity: 0.6; }
+    .tarifa-precio .cur { font-size: 1rem; font-weight: 700; margin-left: 3px; opacity: 0.7; }
     .tarifa-iva {
-      font-size: 0.56rem; color: var(--muted); text-transform: uppercase;
-      letter-spacing: 1.5px; font-weight: 600; margin-bottom: 9px;
+      font-size: 0.58rem; color: var(--muted); text-transform: uppercase;
+      letter-spacing: 1.6px; font-weight: 600; margin-bottom: 12px;
     }
     .tarifa-total-pill {
-      font-size: 0.6rem; color: var(--muted);
-      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-      border-radius: 3px; padding: 3px 9px;
+      font-size: 0.67rem; color: var(--muted2);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 4px 13px;
+      white-space: nowrap; letter-spacing: 0.1px;
     }
     .tarifa-nota {
       background: rgba(200,144,58,0.07); border: 1px solid rgba(200,144,58,0.18);
@@ -373,18 +394,28 @@
     }
   </style>
 <style>
-.muni-search-box{display:flex;gap:12px;margin:28px 0 14px;flex-wrap:wrap;}
-.muni-search-box input{flex:1;min-width:220px;padding:9px 14px;background:#10111f;border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#d8dbe8;font-size:.83rem;font-family:inherit;outline:none;}
-.muni-search-box input:focus{border-color:rgba(200,39,74,.5);}
-.muni-search-box select{padding:9px 14px;background:#10111f;border:1px solid rgba(255,255,255,.12);border-radius:6px;color:#d8dbe8;font-size:.83rem;font-family:inherit;cursor:pointer;}
-.muni-table-wrap{overflow-x:auto;max-height:420px;border:1px solid rgba(255,255,255,.07);border-radius:8px;}
-#muniTable{width:100%;border-collapse:collapse;font-size:.78rem;}
-#muniTable thead th{position:sticky;top:0;background:#161829;color:#7a8399;text-transform:uppercase;font-size:.68rem;letter-spacing:.8px;padding:9px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,.08);}
-#muniTable tbody tr{border-bottom:1px solid rgba(255,255,255,.04);}
-#muniTable tbody tr:hover{background:rgba(200,39,74,.06);}
-#muniTable td{padding:7px 12px;color:#d8dbe8;}
-#muniTable td:nth-child(5),#muniTable td:nth-child(6){font-weight:600;}
-#muniCount{font-size:.75rem;color:#505869;margin-bottom:6px;}
+.muni-search-box{display:flex;gap:10px;margin:24px 0 14px;flex-wrap:wrap;align-items:center;}
+.muni-search-box input{flex:1;min-width:240px;padding:10px 16px 10px 38px;background:#0d0e1d;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#d8dbe8;font-size:.84rem;font-family:inherit;outline:none;transition:border-color .15s,box-shadow .15s;}
+.muni-search-box input:focus{border-color:rgba(200,39,74,.45);box-shadow:0 0 0 3px rgba(200,39,74,.08);}
+.muni-search-box select{padding:10px 14px;background:#0d0e1d;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#d8dbe8;font-size:.84rem;font-family:inherit;cursor:pointer;outline:none;transition:border-color .15s;}
+.muni-search-box select:focus{border-color:rgba(200,39,74,.45);}
+.muni-table-wrap{overflow-x:auto;max-height:460px;border:1px solid rgba(255,255,255,.07);border-radius:10px;background:#090a15;}
+#muniTable{width:100%;border-collapse:collapse;font-size:.8rem;}
+#muniTable thead th{position:sticky;top:0;background:#0e0f21;color:#4a5270;text-transform:uppercase;font-size:.63rem;letter-spacing:1px;font-weight:600;padding:11px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap;}
+#muniTable tbody tr:nth-child(even){background:rgba(255,255,255,.016);}
+#muniTable tbody tr{border-bottom:1px solid rgba(255,255,255,.035);transition:background .1s;}
+#muniTable tbody tr:hover{background:rgba(200,39,74,.07);}
+#muniTable td{padding:8px 14px;color:#c8ccd8;vertical-align:middle;white-space:nowrap;}
+#muniTable td:first-child{color:#d8dbe8;font-weight:500;white-space:normal;min-width:120px;}
+#muniTable td:nth-child(2){font-family:monospace;font-size:.79rem;color:#7a8399;letter-spacing:.5px;}
+.prov-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
+.prov-ba{background:rgba(255,152,0,.1);color:#ffa726;border:1px solid rgba(255,152,0,.22);}
+.prov-cc{background:rgba(64,196,255,.09);color:#4fc3f7;border:1px solid rgba(64,196,255,.18);}
+.td-freq{font-size:.73rem;color:#7a8399;white-space:nowrap;}
+.td-raee{font-weight:700;color:#34d399;white-space:nowrap;letter-spacing:-.2px;}
+.td-noraee{font-weight:500;color:#6ee7b7;white-space:nowrap;letter-spacing:-.2px;}
+#muniCount{font-size:.73rem;color:#505869;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+#muniCount::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;}
 </style></head>
 <body>
 
@@ -609,92 +640,92 @@
 
   <div class="tarifas-grid">
 
-    <div class="tarifa-card">
-      <div class="tarifa-accent" style="background:#00e676"></div>
+    <div class="tarifa-card" style="--tc:#00e676">
+      <div class="tarifa-accent"></div>
       <div class="tarifa-head">
-        <div class="tarifa-zona" style="color:#00e676">TARIFA T1</div>
+        <div class="tarifa-zona">TARIFA T1</div>
         <div class="tarifa-km">Badajoz capital · Lu-Sá</div>
       </div>
       <div class="tarifa-body">
-        <div class="tarifa-precio" style="color:#00e676">36<span class="dec">,00</span><span class="cur">€</span></div>
+        <div class="tarifa-precio">36<span class="dec">,00</span><span class="cur">€</span></div>
         <div class="tarifa-iva">con RAEE · + IVA</div>
         <div class="tarifa-total-pill">Sin RAEE: 32,00 € + IVA</div>
       </div>
     </div>
 
-    <div class="tarifa-card">
-      <div class="tarifa-accent" style="background:#40c4ff"></div>
+    <div class="tarifa-card" style="--tc:#40c4ff">
+      <div class="tarifa-accent"></div>
       <div class="tarifa-head">
-        <div class="tarifa-zona" style="color:#40c4ff">TARIFA T2</div>
+        <div class="tarifa-zona">TARIFA T2</div>
         <div class="tarifa-km">Zona media-baja</div>
       </div>
       <div class="tarifa-body">
-        <div class="tarifa-precio" style="color:#40c4ff">38<span class="dec">,00</span><span class="cur">€</span></div>
+        <div class="tarifa-precio">38<span class="dec">,00</span><span class="cur">€</span></div>
         <div class="tarifa-iva">con RAEE · + IVA</div>
         <div class="tarifa-total-pill">Sin RAEE: 34,00 € + IVA</div>
       </div>
     </div>
 
-    <div class="tarifa-card">
-      <div class="tarifa-accent" style="background:#ffeb3b"></div>
+    <div class="tarifa-card" style="--tc:#ffeb3b">
+      <div class="tarifa-accent"></div>
       <div class="tarifa-head">
-        <div class="tarifa-zona" style="color:#ffeb3b">TARIFA T3</div>
+        <div class="tarifa-zona">TARIFA T3</div>
         <div class="tarifa-km">Zona media</div>
       </div>
       <div class="tarifa-body">
-        <div class="tarifa-precio" style="color:#ffeb3b">40<span class="dec">,00</span><span class="cur">€</span></div>
+        <div class="tarifa-precio">40<span class="dec">,00</span><span class="cur">€</span></div>
         <div class="tarifa-iva">con RAEE · + IVA</div>
         <div class="tarifa-total-pill">Sin RAEE: 36,00 € + IVA</div>
       </div>
     </div>
 
-    <div class="tarifa-card">
-      <div class="tarifa-accent" style="background:#ff9800"></div>
+    <div class="tarifa-card" style="--tc:#ff9800">
+      <div class="tarifa-accent"></div>
       <div class="tarifa-head">
-        <div class="tarifa-zona" style="color:#ff9800">TARIFA T4</div>
+        <div class="tarifa-zona">TARIFA T4</div>
         <div class="tarifa-km">Zona media-alta</div>
       </div>
       <div class="tarifa-body">
-        <div class="tarifa-precio" style="color:#ff9800">42<span class="dec">,00</span><span class="cur">€</span></div>
+        <div class="tarifa-precio">42<span class="dec">,00</span><span class="cur">€</span></div>
         <div class="tarifa-iva">con RAEE · + IVA</div>
         <div class="tarifa-total-pill">Sin RAEE: 38,00 € + IVA</div>
       </div>
     </div>
 
-    <div class="tarifa-card">
-      <div class="tarifa-accent" style="background:#ff5722"></div>
+    <div class="tarifa-card" style="--tc:#ff5722">
+      <div class="tarifa-accent"></div>
       <div class="tarifa-head">
-        <div class="tarifa-zona" style="color:#ff5722">TARIFA T5</div>
+        <div class="tarifa-zona">TARIFA T5</div>
         <div class="tarifa-km">Zona especial (Alía, Guadalupe)</div>
       </div>
       <div class="tarifa-body">
-        <div class="tarifa-precio" style="color:#ff5722">44<span class="dec">,00</span><span class="cur">€</span></div>
+        <div class="tarifa-precio">44<span class="dec">,00</span><span class="cur">€</span></div>
         <div class="tarifa-iva">con RAEE · + IVA</div>
         <div class="tarifa-total-pill">Sin RAEE: 40,00 € + IVA</div>
       </div>
     </div>
 
-    <div class="tarifa-card">
-      <div class="tarifa-accent" style="background:#e91e63"></div>
+    <div class="tarifa-card" style="--tc:#e91e63">
+      <div class="tarifa-accent"></div>
       <div class="tarifa-head">
-        <div class="tarifa-zona" style="color:#e91e63">TARIFA T6</div>
+        <div class="tarifa-zona">TARIFA T6</div>
         <div class="tarifa-km">Zona alta</div>
       </div>
       <div class="tarifa-body">
-        <div class="tarifa-precio" style="color:#e91e63">45<span class="dec">,00</span><span class="cur">€</span></div>
+        <div class="tarifa-precio">45<span class="dec">,00</span><span class="cur">€</span></div>
         <div class="tarifa-iva">con RAEE · + IVA</div>
         <div class="tarifa-total-pill">Sin RAEE: 41,00 € + IVA</div>
       </div>
     </div>
 
-    <div class="tarifa-card">
-      <div class="tarifa-accent" style="background:#9c27b0"></div>
+    <div class="tarifa-card" style="--tc:#9c27b0">
+      <div class="tarifa-accent"></div>
       <div class="tarifa-head">
-        <div class="tarifa-zona" style="color:#9c27b0">TARIFA T7</div>
+        <div class="tarifa-zona">TARIFA T7</div>
         <div class="tarifa-km">Zona más remota</div>
       </div>
       <div class="tarifa-body">
-        <div class="tarifa-precio" style="color:#9c27b0">47<span class="dec">,00</span><span class="cur">€</span></div>
+        <div class="tarifa-precio">47<span class="dec">,00</span><span class="cur">€</span></div>
         <div class="tarifa-iva">con RAEE · + IVA</div>
         <div class="tarifa-total-pill">Sin RAEE: 43,00 € + IVA</div>
       </div>
@@ -1386,8 +1417,13 @@ const DATA=[
 function renderTable(rows){
   var tb=document.getElementById('muniTbody');
   tb.innerHTML=rows.map(function(r){
-    return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2].replace('Caceres','Cáceres')+'</td><td>'+r[3]+'</td><td>'+r[4]+' €</td><td>'+r[5]+' €</td></tr>';
+    var isBadajoz=r[2].toLowerCase().indexOf('caceres')<0;
+    var pc=isBadajoz?'prov-ba':'prov-cc';
+    var pl=isBadajoz?'Badajoz':'Cáceres';
+    return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td><span class="prov-badge '+pc+'">'+pl+'</span></td><td class="td-freq">'+r[3]+'</td><td class="td-raee">'+r[4]+' €</td><td class="td-noraee">'+r[5]+' €</td></tr>';
   }).join('');
+  document.getElementById('muniCount').textContent='Mostrando '+rows.length+' de 391 registros';
+}).join('');
   document.getElementById('muniCount').textContent='Mostrando '+rows.length+' de 391 registros';
 }
 function filterTable(){
