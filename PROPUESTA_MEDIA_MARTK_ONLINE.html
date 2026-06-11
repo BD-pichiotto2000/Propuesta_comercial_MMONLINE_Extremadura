@@ -492,8 +492,8 @@
     <div style="margin-top:32px">
       <p id="muniCount">Cargando...</p>
       <div class="muni-search-box">
-        <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable()">
-        <select id="provFilter" onchange="filterTable()">
+        <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable(this)">
+        <select id="provFilter" onchange="filterTable(this)">
           <option value="">Todas las provincias</option>
           <option value="Badajoz">Badajoz</option>
           <option value="Caceres">Cáceres</option>
@@ -607,8 +607,8 @@
     <div style="margin-top:32px">
       <p id="muniCount">Cargando...</p>
       <div class="muni-search-box">
-        <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable()">
-        <select id="provFilter" onchange="filterTable()">
+        <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable(this)">
+        <select id="provFilter" onchange="filterTable(this)">
           <option value="">Todas las provincias</option>
           <option value="Badajoz">Badajoz</option>
           <option value="Caceres">Cáceres</option>
@@ -926,8 +926,8 @@
     <div style="margin-top:32px">
       <p id="muniCount">Cargando...</p>
       <div class="muni-search-box">
-        <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable()">
-        <select id="provFilter" onchange="filterTable()">
+        <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable(this)">
+        <select id="provFilter" onchange="filterTable(this)">
           <option value="">Todas las provincias</option>
           <option value="Badajoz">Badajoz</option>
           <option value="Caceres">Cáceres</option>
@@ -1362,22 +1362,34 @@ const DATA=[
 ];
 
 function renderTable(rows){
-  var tb=document.getElementById('muniTbody');
-  tb.innerHTML=rows.map(function(r){
+  var html=rows.map(function(r){
     var isBadajoz=r[2].toLowerCase().indexOf('caceres')<0;
     var pc=isBadajoz?'prov-ba':'prov-cc';
     var pl=isBadajoz?'Badajoz':'Cáceres';
     return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td><span class="prov-badge '+pc+'">'+pl+'</span></td><td class="td-freq">'+r[3]+'</td><td class="td-raee">'+r[4]+' €</td><td class="td-noraee">'+r[5]+' €</td></tr>';
   }).join('');
-  document.getElementById('muniCount').textContent='Mostrando '+rows.length+' de 391 registros';
+  var label='Mostrando '+rows.length+' de '+DATA.length+' registros';
+  document.querySelectorAll('[id="muniTbody"]').forEach(function(el){el.innerHTML=html;});
+  document.querySelectorAll('[id="muniCount"]').forEach(function(el){el.textContent=label;});
 }
-function filterTable(){
-  var q=(document.getElementById('muniSearch').value||'').toLowerCase();
-  var pv=(document.getElementById('provFilter').value||'').toLowerCase();
+function filterTable(src){
+  var q='',pv='';
+  if(src&&src.tagName==='INPUT'){
+    q=src.value.toLowerCase();
+    document.querySelectorAll('[id="muniSearch"]').forEach(function(el){el.value=src.value;});
+    pv=(document.querySelectorAll('[id="provFilter"]')[0].value||'').toLowerCase();
+  }else if(src&&src.tagName==='SELECT'){
+    pv=src.value.toLowerCase();
+    document.querySelectorAll('[id="provFilter"]').forEach(function(el){el.value=src.value;});
+    q=(document.querySelectorAll('[id="muniSearch"]')[0].value||'').toLowerCase();
+  }else{
+    q=((document.querySelectorAll('[id="muniSearch"]')[0]||{}).value||'').toLowerCase();
+    pv=((document.querySelectorAll('[id="provFilter"]')[0]||{}).value||'').toLowerCase();
+  }
   var res=DATA.filter(function(r){
-    var matchQ=!q||(r[0].toLowerCase().indexOf(q)>=0||r[1].indexOf(q)>=0);
-    var matchP=!pv||(r[2].toLowerCase().indexOf(pv)>=0);
-    return matchQ&&matchP;
+    var mQ=!q||r[0].toLowerCase().indexOf(q)>=0||r[1].indexOf(q)>=0;
+    var mP=!pv||r[2].toLowerCase().indexOf(pv)>=0;
+    return mQ&&mP;
   });
   renderTable(res);
 }
