@@ -1075,7 +1075,8 @@ let filtroActivo = 'TODOS';
 const todosMarkersData = [];
 
 function makeIcon(zona, dia, modo) {
-  const c = modo === 'dia' ? getDiaColor(dia) : ZONAS[zona].color;
+  const zData = ZONAS[zona] || ZONAS['1'];
+  const c = modo === 'dia' ? getDiaColor(dia) : zData.color;
   return L.divIcon({
     className: '',
     html: `<div style="
@@ -1092,7 +1093,9 @@ const cpZona = {'06001':'1','06002':'1','06003':'1','06004':'1','06005':'1','060
 // Reasignar zona de cada municipio segun tarifa Excel
 municipios.forEach(function(m){
   var cps=(m.cp+'').replace(/[^0-9]+/g,' ').trim().split(/\s+/);
-  for(var i=0;i<cps.length;i++){var k=cps[i].padStart(5,'0');if(cpZona[k]){m.zona=cpZona[k];break;}}});
+  for(var i=0;i<cps.length;i++){var k=cps[i].padStart(5,'0');if(cpZona[k]){m.zona=cpZona[k];break;}}
+  if(!ZONAS[m.zona]){m.zona='1';}
+});
 
 // Agrupar por municipio (mismo punto → mismo marcador)
 const seen = {};
