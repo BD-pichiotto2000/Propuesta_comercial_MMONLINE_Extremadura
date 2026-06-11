@@ -394,27 +394,31 @@
     }
   </style>
 <style>
-.muni-search-box{display:flex;gap:10px;margin:24px 0 14px;flex-wrap:wrap;align-items:center;}
-.muni-search-box input{flex:1;min-width:240px;padding:10px 16px 10px 38px;background:#0d0e1d;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#d8dbe8;font-size:.84rem;font-family:inherit;outline:none;transition:border-color .15s,box-shadow .15s;}
-.muni-search-box input:focus{border-color:rgba(200,39,74,.45);box-shadow:0 0 0 3px rgba(200,39,74,.08);}
-.muni-search-box select{padding:10px 14px;background:#0d0e1d;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#d8dbe8;font-size:.84rem;font-family:inherit;cursor:pointer;outline:none;transition:border-color .15s;}
-.muni-search-box select:focus{border-color:rgba(200,39,74,.45);}
-.muni-table-wrap{overflow-x:auto;max-height:460px;border:1px solid rgba(255,255,255,.07);border-radius:10px;background:#090a15;}
-#muniTable{width:100%;border-collapse:collapse;font-size:.8rem;}
-#muniTable thead th{position:sticky;top:0;background:#0e0f21;color:#4a5270;text-transform:uppercase;font-size:.63rem;letter-spacing:1px;font-weight:600;padding:11px 14px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap;}
-#muniTable tbody tr:nth-child(even){background:rgba(255,255,255,.016);}
-#muniTable tbody tr{border-bottom:1px solid rgba(255,255,255,.035);transition:background .1s;}
-#muniTable tbody tr:hover{background:rgba(200,39,74,.07);}
-#muniTable td{padding:8px 14px;color:#c8ccd8;vertical-align:middle;white-space:nowrap;}
-#muniTable td:first-child{color:#d8dbe8;font-weight:500;white-space:normal;min-width:120px;}
-#muniTable td:nth-child(2){font-family:monospace;font-size:.79rem;color:#7a8399;letter-spacing:.5px;}
-.prov-badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.62rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap;}
-.prov-ba{background:rgba(255,152,0,.1);color:#ffa726;border:1px solid rgba(255,152,0,.22);}
-.prov-cc{background:rgba(64,196,255,.09);color:#4fc3f7;border:1px solid rgba(64,196,255,.18);}
-.td-freq{font-size:.73rem;color:#7a8399;white-space:nowrap;}
-.td-raee{font-weight:700;color:#34d399;white-space:nowrap;letter-spacing:-.2px;}
-.td-noraee{font-weight:500;color:#6ee7b7;white-space:nowrap;letter-spacing:-.2px;}
-#muniCount{font-size:.73rem;color:#505869;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.muni-wrap{grid-column:1/-1;padding:0 40px 48px;border-top:1px solid rgba(255,255,255,.055);}
+.muni-wrap-inner{max-width:1120px;margin:0 auto;}
+.muni-wrap-title{font-size:.63rem;color:var(--accent,#c8274a);letter-spacing:3px;text-transform:uppercase;font-weight:600;padding-top:32px;margin-bottom:6px;}
+.muni-wrap-sub{font-size:.82rem;color:#505869;margin-bottom:18px;}
+.muni-search-box{display:flex;gap:10px;margin:0 0 14px;flex-wrap:wrap;align-items:center;}
+.muni-search-box input{flex:1;min-width:260px;padding:11px 16px 11px 42px;background:#0d0e1d;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#d8dbe8;font-size:.85rem;font-family:inherit;outline:none;transition:border-color .15s,box-shadow .15s;}
+.muni-search-box input:focus{border-color:rgba(200,39,74,.5);box-shadow:0 0 0 3px rgba(200,39,74,.09);}
+.muni-search-box select{padding:11px 16px;background:#0d0e1d;border:1px solid rgba(255,255,255,.1);border-radius:8px;color:#d8dbe8;font-size:.85rem;font-family:inherit;cursor:pointer;outline:none;min-width:180px;transition:border-color .15s;}
+.muni-search-box select:focus{border-color:rgba(200,39,74,.5);}
+.muni-table-wrap{overflow-x:auto;max-height:500px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:#090a15;box-shadow:0 8px 32px rgba(0,0,0,.35);}
+#muniTable{width:100%;border-collapse:collapse;font-size:.82rem;}
+#muniTable thead th{position:sticky;top:0;background:#0e0f22;color:#3f4a6a;text-transform:uppercase;font-size:.64rem;letter-spacing:1.1px;font-weight:600;padding:13px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.07);white-space:nowrap;}
+#muniTable tbody tr:nth-child(even){background:rgba(255,255,255,.018);}
+#muniTable tbody tr{border-bottom:1px solid rgba(255,255,255,.032);transition:background .12s;}
+#muniTable tbody tr:hover{background:rgba(200,39,74,.08);}
+#muniTable td{padding:10px 16px;color:#c8ccd8;vertical-align:middle;white-space:nowrap;}
+#muniTable td:first-child{color:#dde1ef;font-weight:500;white-space:normal;min-width:140px;}
+#muniTable td:nth-child(2){font-family:'SF Mono',Consolas,monospace;font-size:.8rem;color:#6b7899;letter-spacing:.6px;}
+.prov-badge{display:inline-block;padding:3px 9px;border-radius:5px;font-size:.62rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;white-space:nowrap;}
+.prov-ba{background:rgba(255,152,0,.12);color:#ffa726;border:1px solid rgba(255,152,0,.25);}
+.prov-cc{background:rgba(64,196,255,.1);color:#4fc3f7;border:1px solid rgba(64,196,255,.2);}
+.td-freq{font-size:.75rem;color:#6b7899;white-space:nowrap;}
+.td-raee{font-weight:700;color:#34d399;white-space:nowrap;letter-spacing:-.2px;font-size:.84rem;}
+.td-noraee{font-weight:500;color:#6ee7b7;white-space:nowrap;font-size:.84rem;}
+#muniCount{font-size:.73rem;color:#505869;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 #muniCount::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 6px #22c55e;}
 </style></head>
 <body>
@@ -489,24 +493,28 @@
       <div class="kpi-num">5</div>
       <div class="kpi-label">Días de ruta semanales</div>
     </div>
-    <div style="margin-top:32px">
-      <p id="muniCount">Cargando...</p>
-      <div class="muni-search-box">
-        <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable(this)">
-        <select id="provFilter" onchange="filterTable(this)">
-          <option value="">Todas las provincias</option>
-          <option value="Badajoz">Badajoz</option>
-          <option value="Caceres">Cáceres</option>
-        </select>
-      </div>
-      <div class="muni-table-wrap">
-        <table id="muniTable">
-          <thead><tr>
-            <th>Municipio</th><th>C.P.</th><th>Provincia</th>
-            <th>Frecuencia reparto</th><th>Tarifa RAEE</th><th>Sin RAEE</th>
-          </tr></thead>
-          <tbody id="muniTbody"></tbody>
-        </table>
+    <div class="muni-wrap">
+      <div class="muni-wrap-inner">
+        <div class="muni-wrap-title">Consulta de cobertura</div>
+        <div class="muni-wrap-sub">391 municipios · Badajoz y Cáceres · frecuencia y tarifa por CP</div>
+        <p id="muniCount">Cargando...</p>
+        <div class="muni-search-box">
+          <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable(this)">
+          <select id="provFilter" onchange="filterTable(this)">
+            <option value="">Todas las provincias</option>
+            <option value="Badajoz">Badajoz</option>
+            <option value="Caceres">Cáceres</option>
+          </select>
+        </div>
+        <div class="muni-table-wrap">
+          <table id="muniTable">
+            <thead><tr>
+              <th>Municipio</th><th>C.P.</th><th>Provincia</th>
+              <th>Frecuencia reparto</th><th>Tarifa RAEE</th><th>Sin RAEE</th>
+            </tr></thead>
+            <tbody id="muniTbody"></tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -604,7 +612,7 @@
     <div class="map-wrapper">
       <iframe src="extremadura_mapa_zonas.html" title="Mapa de zonas tarifarias Extremadura"></iframe>
     </div>
-    <div style="margin-top:32px">
+    <div style="margin-top:28px">
       <p id="muniCount">Cargando...</p>
       <div class="muni-search-box">
         <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable(this)">
@@ -923,7 +931,7 @@
         </a>
       </div>
     </div>
-    <div style="margin-top:32px">
+    <div style="margin-top:28px">
       <p id="muniCount">Cargando...</p>
       <div class="muni-search-box">
         <input type="text" id="muniSearch" placeholder="🔍  Busca municipio o código postal…" oninput="filterTable(this)">
