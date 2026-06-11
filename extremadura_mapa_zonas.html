@@ -1016,26 +1016,7 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 18
 }).addTo(map);
 
-// ============================================================
-// ANILLOS DE ZONA (círculos concéntricos)
-// ============================================================
 const origen = [38.8794, -6.9707];
-const radiosKm = [25, 50, 75, 120, 160, 200];
-const zonasKeys = ['A', 'B', 'C', 'D', 'E', 'F'];
-
-radiosKm.forEach((r, i) => {
-  L.circle(origen, {
-    radius: r * 1000,
-    color: ZONAS[zonasKeys[i]].color,
-    weight: 1.5,
-    opacity: 0.5,
-    fill: true,
-    fillColor: ZONAS[zonasKeys[i]].color,
-    fillOpacity: 0.04,
-    dashArray: '6 4',
-    interactive: false
-  }).addTo(map);
-});
 
 // Colores por día de reparto
 const DIA_COLORS = {
