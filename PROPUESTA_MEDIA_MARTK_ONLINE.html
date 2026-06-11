@@ -1370,8 +1370,6 @@ function renderTable(rows){
     return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td><span class="prov-badge '+pc+'">'+pl+'</span></td><td class="td-freq">'+r[3]+'</td><td class="td-raee">'+r[4]+' €</td><td class="td-noraee">'+r[5]+' €</td></tr>';
   }).join('');
   document.getElementById('muniCount').textContent='Mostrando '+rows.length+' de 391 registros';
-}).join('');
-  document.getElementById('muniCount').textContent='Mostrando '+rows.length+' de 391 registros';
 }
 function filterTable(){
   var q=(document.getElementById('muniSearch').value||'').toLowerCase();
